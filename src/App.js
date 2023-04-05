@@ -2,20 +2,6 @@ import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
 
-/*
-cardName, uma string;
-cardDescription, uma string;
-cardAttr1, uma string;
-cardAttr2, uma string;
-cardAttr3, uma string;
-cardImage, uma string;
-cardRare, uma string;
-cardTrunfo, um boolean;
-hasTrunfo, um boolean;
-isSaveButtonDisabled, um boolean;
-onInputChange, uma callback;
-onSaveButtonClick, uma callback;
-*/
 class App extends React.Component {
   constructor() {
     super();
@@ -28,30 +14,21 @@ class App extends React.Component {
       cardRare: 'normal',
       hasTrunfo: false,
       cardTrunfo: false,
-      /*
-           cardName,
-      cardDescription,
-      cardAttr1,
-      cardAttr2,
-      cardAttr3,
-      cardImage,
-      cardRare,
-      cardTrunfo,
-      hasTrunfo,
-      isSaveButtonDisabled,
-      onInputChange,
-      onSaveButtonClick,
-      */
-
     };
+  }
+
+  handleChanges = ({ target }) => {
+    const { name, value } = target;
+    this.setState({ [name]: value });
+    console.log(this.state)
   }
 
   render() {
     return (
       <div>
         <h1>Tryunfo</h1>
-        <Form argumentos={this.state} />
-        <Card />
+        <Form argumentos={this.state} onInputChange={this.handleChanges} />
+        <Card argumentos={this.state} />
       </div>
     );
   }

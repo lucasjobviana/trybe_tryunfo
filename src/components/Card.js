@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 class Card extends Component {
   render() {
+
     const {
       cardName,
       cardDescription,
@@ -12,7 +13,7 @@ class Card extends Component {
       cardImage,
       cardRare,
       cardTrunfo,
-    } = this.props;
+    } = this.props.argumentos;
 
     console.log(
       cardName,
@@ -34,7 +35,7 @@ class Card extends Component {
           Nome:
           {cardName}
         </p>
-        <img src={ cardImage } alt={ cardName } data-testid="image-card" />
+        <img src={cardImage} alt={cardName} data-testid="image-card" />
         <p data-testid="description-card">
           Descrição:
           {cardDescription}

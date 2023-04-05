@@ -10,9 +10,9 @@ class Form extends Component {
     }
   }
   render() {
-    console.log(this.props)
+    //console.log(this.props)
     const { argumentos } = this.props;
-    console.log(argumentos)
+    //console.log(argumentos)
 
 
 
@@ -27,11 +27,13 @@ class Form extends Component {
       cardTrunfo,
       hasTrunfo,
       // isSaveButtonDisabled,
-      onInputChange,
+      //onInputChange,
       onSaveButtonClick,
     } = this.props.argumentos;
 
-    console.log(hasTrunfo);
+    const { onInputChange } = this.props;
+
+    // console.log(hasTrunfo);
     return (
       <form>
         <h1>Olá, mundo!</h1>
