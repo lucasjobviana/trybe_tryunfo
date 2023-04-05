@@ -31,6 +31,7 @@ class Form extends Component {
       onSaveButtonClick,
     } = this.props;
 
+    const c = cardDescription;
     return (
       <form>
         <h1>Olá, mundo!</h1>
@@ -40,37 +41,69 @@ class Form extends Component {
         </label>
         <label htmlFor="ipt-descrition">
           Nome:
-          <input type="text" data-testid="description-input" id="ipt-descrition" />
+          <input
+            type="text"
+            data-testid="description-input"
+            id="ipt-descrition"
+            value={ cardDescription }
+          />
         </label>
         <label htmlFor="ipt-atk">
           Força de Ataque:
-          <input type="number" data-testid="attr1-input" id="ipt-atk" />
+          <input
+            type="number"
+            data-testid="attr1-input"
+            id="ipt-atk"
+            value={ cardAttr1 }
+          />
         </label>
         <label htmlFor="ipt-dfs">
           Força de Defesa:
-          <input type="number" data-testid="attr2-input" id="ipt-dfs" />
+          <input
+            type="number"
+            data-testid="attr2-input"
+            id="ipt-dfs"
+            value={ cardAttr2 }
+          />
         </label>
         <label htmlFor="ipt-vlc">
           Velocidade:
-          <input type="number" data-testid="attr3-input" id="ipt-vlc" />
+          <input
+            type="number"
+            data-testid="attr3-input"
+            id="ipt-vlc"
+            value={ cardAttr3 }
+          />
         </label>
         <label htmlFor="ipt-src-img">
           Imagem:
-          <input type="text" data-testid="image-input" id="ipt-src-img" />
+          <input
+            type="text"
+            data-testid="image-input"
+            id="ipt-src-img"
+            value={ cardImage }
+          />
         </label>
         <label htmlFor="slc-tipo">
           Tipo:
           <select data-testid="rare-input" name="tipo" id="slc-tipo">
-            <option value="normal" selected>normal</option>
+            <option value="normal">normal</option>
             <option value="raro">raro</option>
             <option value="muito raro">muito raro</option>
           </select>
         </label>
         <label htmlFor="ipt-trunfo">
           Super Trunfo
-          <input data-testid="trunfo-input" type="checkbox" id="ipt-trunfo" />
+          <input data-testid="trunfo-input" type="checkbox" id="ipt-trunfo" checked />
         </label>
-        <button data-testid="save-button">Salvar</button>
+        <button
+          data-testid="save-button"
+          disabled={ isSaveButtonDisabled }
+        >
+
+          Salvar
+
+        </button>
 
       </form>
     );
