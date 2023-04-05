@@ -2,7 +2,20 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Form extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      isSaveButtonDisabled: false,
+    }
+  }
   render() {
+    console.log(this.props)
+    const { argumentos } = this.props;
+    console.log(argumentos)
+
+
+
     const {
       cardName,
       cardDescription,
@@ -13,10 +26,11 @@ class Form extends Component {
       cardRare,
       cardTrunfo,
       hasTrunfo,
-      isSaveButtonDisabled,
+      // isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
-    } = this.props;
+    } = this.props.argumentos;
+
     console.log(hasTrunfo);
     return (
       <form>
@@ -25,7 +39,7 @@ class Form extends Component {
           Nome:
           <input
             type="text"
-            name="nome"
+            name="cardName"
             onChange={onInputChange}
             data-testid="name-input"
             id="ipt-name"
@@ -36,7 +50,7 @@ class Form extends Component {
           Descrição:
           <input
             type="text"
-            name="descricao"
+            name="cardDescription"
             onChange={onInputChange}
             data-testid="description-input"
             id="ipt-descrition"
@@ -47,7 +61,7 @@ class Form extends Component {
           Força de Ataque:
           <input
             type="number"
-            name="ataque"
+            name="cardAttr1"
             onChange={onInputChange}
             data-testid="attr1-input"
             id="ipt-atk"
@@ -57,7 +71,7 @@ class Form extends Component {
         <label htmlFor="ipt-dfs">
           Força de Defesa:
           <input
-            name="defesa"
+            name="cardAttr2"
             type="number"
             onChange={onInputChange}
             data-testid="attr2-input"
@@ -69,7 +83,7 @@ class Form extends Component {
           Velocidade:
           <input
             type="number"
-            name="velocidade"
+            name="cardAttr3"
             onChange={onInputChange}
             data-testid="attr3-input"
             id="ipt-vlc"
@@ -79,7 +93,7 @@ class Form extends Component {
         <label htmlFor="ipt-src-img">
           Imagem:
           <input
-            name="imagem"
+            name="cardImage"
             type="text"
             onChange={onInputChange}
             data-testid="image-input"
@@ -93,7 +107,7 @@ class Form extends Component {
             onChange={onInputChange}
             value={cardRare}
             data-testid="rare-input"
-            name="tipo"
+            name="cardRare"
             id="slc-tipo"
           >
             <option value="normal">normal</option>
@@ -104,7 +118,7 @@ class Form extends Component {
         <label htmlFor="ipt-trunfo">
           Super Trunfo
           <input
-            name="superTrunfo"
+            name="cardTrunfo"
             data-testid="trunfo-input"
             onChange={onInputChange}
             type="checkbox"
@@ -115,7 +129,7 @@ class Form extends Component {
         <button
           data-testid="save-button"
           onClick={onSaveButtonClick}
-          disabled={isSaveButtonDisabled}
+          disabled={this.state.isSaveButtonDisabled}
         >
 
           Salvar

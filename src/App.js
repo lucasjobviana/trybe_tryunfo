@@ -20,13 +20,28 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      nome: '',
-      descricao: '',
-      ataque: '',
-      defesa: '',
-      velocidade: '',
-      tipo: '',
-      superTrunfo: false,
+      cardName: 'Nome do Pokemom',
+      cardDescription: 'Qual é esse pokemom?',
+      cardAttr1: '50',
+      cardAttr2: '40',
+      cardAttr3: '30',
+      cardRare: 'normal',
+      hasTrunfo: false,
+      cardTrunfo: false,
+      /*
+           cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+      hasTrunfo,
+      isSaveButtonDisabled,
+      onInputChange,
+      onSaveButtonClick,
+      */
 
     };
   }
@@ -35,7 +50,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>Tryunfo</h1>
-        <Form />
+        <Form argumentos={this.state} />
         <Card />
       </div>
     );
