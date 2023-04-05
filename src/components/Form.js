@@ -2,20 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Form extends Component {
-
   constructor() {
     super();
     this.state = {
       isSaveButtonDisabled: false,
-    }
+    };
   }
+
   render() {
-    //console.log(this.props)
-    const { argumentos } = this.props;
-    //console.log(argumentos)
-
-
-
     const {
       cardName,
       cardDescription,
@@ -27,13 +21,13 @@ class Form extends Component {
       cardTrunfo,
       hasTrunfo,
       // isSaveButtonDisabled,
-      //onInputChange,
+      // onInputChange,
       onSaveButtonClick,
-    } = this.props.argumentos;
+    } = this.props;
 
     const { onInputChange } = this.props;
 
-    // console.log(hasTrunfo);
+    console.log(hasTrunfo);
     return (
       <form>
         <h1>Olá, mundo!</h1>
@@ -42,10 +36,10 @@ class Form extends Component {
           <input
             type="text"
             name="cardName"
-            onChange={onInputChange}
+            onChange={ onInputChange }
             data-testid="name-input"
             id="ipt-name"
-            value={cardName}
+            value={ cardName }
           />
         </label>
         <label htmlFor="ipt-descrition">
@@ -53,10 +47,10 @@ class Form extends Component {
           <input
             type="text"
             name="cardDescription"
-            onChange={onInputChange}
+            onChange={ onInputChange }
             data-testid="description-input"
             id="ipt-descrition"
-            value={cardDescription}
+            value={ cardDescription }
           />
         </label>
         <label htmlFor="ipt-atk">
@@ -64,10 +58,10 @@ class Form extends Component {
           <input
             type="number"
             name="cardAttr1"
-            onChange={onInputChange}
+            onChange={ onInputChange }
             data-testid="attr1-input"
             id="ipt-atk"
-            value={cardAttr1}
+            value={ cardAttr1 }
           />
         </label>
         <label htmlFor="ipt-dfs">
@@ -75,10 +69,10 @@ class Form extends Component {
           <input
             name="cardAttr2"
             type="number"
-            onChange={onInputChange}
+            onChange={ onInputChange }
             data-testid="attr2-input"
             id="ipt-dfs"
-            value={cardAttr2}
+            value={ cardAttr2 }
           />
         </label>
         <label htmlFor="ipt-vlc">
@@ -86,10 +80,10 @@ class Form extends Component {
           <input
             type="number"
             name="cardAttr3"
-            onChange={onInputChange}
+            onChange={ onInputChange }
             data-testid="attr3-input"
             id="ipt-vlc"
-            value={cardAttr3}
+            value={ cardAttr3 }
           />
         </label>
         <label htmlFor="ipt-src-img">
@@ -97,17 +91,17 @@ class Form extends Component {
           <input
             name="cardImage"
             type="text"
-            onChange={onInputChange}
+            onChange={ onInputChange }
             data-testid="image-input"
             id="ipt-src-img"
-            value={cardImage}
+            value={ cardImage }
           />
         </label>
         <label htmlFor="slc-tipo">
           Tipo:
           <select
-            onChange={onInputChange}
-            value={cardRare}
+            onChange={ onInputChange }
+            value={ cardRare }
             data-testid="rare-input"
             name="cardRare"
             id="slc-tipo"
@@ -122,16 +116,16 @@ class Form extends Component {
           <input
             name="cardTrunfo"
             data-testid="trunfo-input"
-            onChange={onInputChange}
+            onChange={ onInputChange }
             type="checkbox"
             id="ipt-trunfo"
-            checked={cardTrunfo}
+            checked={ cardTrunfo }
           />
         </label>
         <button
           data-testid="save-button"
-          onClick={onSaveButtonClick}
-          disabled={this.state.isSaveButtonDisabled}
+          onClick={ onSaveButtonClick }
+          disabled={ this.state.isSaveButtonDisabled }
         >
 
           Salvar
@@ -153,7 +147,7 @@ Form.propTypes = {
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
   hasTrunfo: PropTypes.bool.isRequired,
-  isSaveButtonDisabled: PropTypes.bool.isRequired,
+  // isSaveButtonDisabled: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,
 };

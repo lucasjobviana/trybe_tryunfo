@@ -12,6 +12,7 @@ class App extends React.Component {
       cardAttr2: '40',
       cardAttr3: '30',
       cardRare: 'normal',
+      cardImage: './bulba.png',
       hasTrunfo: false,
       cardTrunfo: false,
     };
@@ -20,15 +21,37 @@ class App extends React.Component {
   handleChanges = ({ target }) => {
     const { name, value } = target;
     this.setState({ [name]: value });
-    console.log(this.state)
-  }
+    console.log(this.state);
+  };
 
   render() {
+    const { cardAttr1 } = this.state;
+    console.log(cardAttr1);
     return (
       <div>
         <h1>Tryunfo</h1>
-        <Form argumentos={this.state} onInputChange={this.handleChanges} />
-        <Card argumentos={this.state} />
+        <Form
+          onInputChange={ this.handleChanges }
+          cardName={ this.state.cardName }
+          cardDescription={ this.state.cardDescription }
+          cardAttr1={ this.state.cardAttr1 }
+          cardAttr2={ this.state.cardAttr2 }
+          cardAttr3={ this.state.cardAttr3 }
+          cardImage={ this.state.cardImage }
+          cardRare={ this.state.cardRare }
+          cardTrunfo={ this.state.cardTrunfo }
+          hasTrunfo={ this.state.hasTrunfo }
+        />
+        <Card
+          cardName={ this.state.cardName }
+          cardDescription={ this.state.cardDescription }
+          cardAttr1={ this.state.cardAttr1 }
+          cardAttr2={ this.state.cardAttr2 }
+          cardAttr3={ this.state.cardAttr3 }
+          cardImage={ this.state.cardImage }
+          cardRare={ this.state.cardRare }
+          cardTrunfo={ this.state.cardTrunfo }
+        />
       </div>
     );
   }
