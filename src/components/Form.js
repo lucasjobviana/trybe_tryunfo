@@ -31,18 +31,24 @@ class Form extends Component {
       onSaveButtonClick,
     } = this.props;
 
-    const c = cardDescription;
     return (
       <form>
         <h1>Olá, mundo!</h1>
         <label htmlFor="ipt-name">
           Nome:
-          <input type="text" data-testid="name-input" id="ipt-name" value={ cardName } />
+          <input
+            type="text"
+            onChange={ onInputChange }
+            data-testid="name-input"
+            id="ipt-name"
+            value={ cardName }
+          />
         </label>
         <label htmlFor="ipt-descrition">
           Nome:
           <input
             type="text"
+            onChange={ onInputChange }
             data-testid="description-input"
             id="ipt-descrition"
             value={ cardDescription }
@@ -52,6 +58,7 @@ class Form extends Component {
           Força de Ataque:
           <input
             type="number"
+            onChange={ onInputChange }
             data-testid="attr1-input"
             id="ipt-atk"
             value={ cardAttr1 }
@@ -61,6 +68,7 @@ class Form extends Component {
           Força de Defesa:
           <input
             type="number"
+            onChange={ onInputChange }
             data-testid="attr2-input"
             id="ipt-dfs"
             value={ cardAttr2 }
@@ -70,6 +78,7 @@ class Form extends Component {
           Velocidade:
           <input
             type="number"
+            onChange={ onInputChange }
             data-testid="attr3-input"
             id="ipt-vlc"
             value={ cardAttr3 }
@@ -79,6 +88,7 @@ class Form extends Component {
           Imagem:
           <input
             type="text"
+            onChange={ onInputChange }
             data-testid="image-input"
             id="ipt-src-img"
             value={ cardImage }
@@ -86,7 +96,13 @@ class Form extends Component {
         </label>
         <label htmlFor="slc-tipo">
           Tipo:
-          <select value={ cardRare } data-testid="rare-input" name="tipo" id="slc-tipo">
+          <select
+            onChange={ onInputChange }
+            value={ cardRare }
+            data-testid="rare-input"
+            name="tipo"
+            id="slc-tipo"
+          >
             <option value="normal">normal</option>
             <option value="raro">raro</option>
             <option value="muito raro">muito raro</option>
@@ -96,6 +112,7 @@ class Form extends Component {
           Super Trunfo
           <input
             data-testid="trunfo-input"
+            onChange={ onInputChange }
             type="checkbox"
             id="ipt-trunfo"
             checked={ cardTrunfo }
@@ -103,6 +120,7 @@ class Form extends Component {
         </label>
         <button
           data-testid="save-button"
+          onClick={ onSaveButtonClick }
           disabled={ isSaveButtonDisabled }
         >
 
