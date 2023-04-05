@@ -17,6 +17,20 @@ onInputChange, uma callback;
 onSaveButtonClick, uma callback;
 */
 class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      nome: '',
+      descricao: '',
+      ataque: '',
+      defesa: '',
+      velocidade: '',
+      tipo: '',
+      superTrunfo: false,
+
+    };
+  }
+
   render() {
     return (
       <div>
