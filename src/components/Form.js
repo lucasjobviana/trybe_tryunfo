@@ -1,13 +1,40 @@
 import React, { Component } from 'react';
-
+/*
+cardName, uma string;
+cardDescription, uma string;
+cardAttr1, uma string;
+cardAttr2, uma string;
+cardAttr3, uma string;
+cardImage, uma string;
+cardRare, uma string;
+cardTrunfo, um boolean;
+hasTrunfo, um boolean;
+isSaveButtonDisabled, um boolean;
+onInputChange, uma callback;
+onSaveButtonClick, uma callback;
+*/
 class Form extends Component {
   render() {
+    const {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+      isSaveButtonDisabled,
+      onInputChange,
+      onSaveButtonClick,
+    } = this.props;
+
     return (
       <form>
         <h1>Olá, mundo!</h1>
         <label htmlFor="ipt-name">
           Nome:
-          <input type="text" data-testid="name-input" id="ipt-name" />
+          <input type="text" data-testid="name-input" id="ipt-name" value={ cardName } />
         </label>
         <label htmlFor="ipt-descrition">
           Nome:
