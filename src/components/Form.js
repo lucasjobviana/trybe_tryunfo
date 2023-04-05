@@ -86,7 +86,7 @@ class Form extends Component {
         </label>
         <label htmlFor="slc-tipo">
           Tipo:
-          <select data-testid="rare-input" name="tipo" id="slc-tipo">
+          <select value={ cardRare } data-testid="rare-input" name="tipo" id="slc-tipo">
             <option value="normal">normal</option>
             <option value="raro">raro</option>
             <option value="muito raro">muito raro</option>
@@ -94,7 +94,12 @@ class Form extends Component {
         </label>
         <label htmlFor="ipt-trunfo">
           Super Trunfo
-          <input data-testid="trunfo-input" type="checkbox" id="ipt-trunfo" checked />
+          <input
+            data-testid="trunfo-input"
+            type="checkbox"
+            id="ipt-trunfo"
+            checked={ cardTrunfo }
+          />
         </label>
         <button
           data-testid="save-button"
