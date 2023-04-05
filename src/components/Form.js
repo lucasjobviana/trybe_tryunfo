@@ -1,20 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-/*
-cardName, uma string;
-cardDescription, uma string;
-cardAttr1, uma string;
-cardAttr2, uma string;
-cardAttr3, uma string;
-cardImage, uma string;
-cardRare, uma string;
-cardTrunfo, um boolean;
-hasTrunfo, um boolean;
-isSaveButtonDisabled, um boolean;
-onInputChange, uma callback;
-onSaveButtonClick, uma callback;
-*/
 class Form extends Component {
   render() {
     const {
@@ -26,11 +12,12 @@ class Form extends Component {
       cardImage,
       cardRare,
       cardTrunfo,
+      hasTrunfo,
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
     } = this.props;
-
+    console.log(hasTrunfo);
     return (
       <form>
         <h1>Olá, mundo!</h1>
@@ -141,9 +128,24 @@ Form.propTypes = {
   cardAttr3: PropTypes.string.isRequired,
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
-  cardTrunfo: PropTypes.string.isRequired,
-  isSaveButtonDisabled: PropTypes.string.isRequired,
-  onInputChange: PropTypes.string.isRequired,
-  onSaveButtonClick: PropTypes.string.isRequired,
+  cardTrunfo: PropTypes.bool.isRequired,
+  hasTrunfo: PropTypes.bool.isRequired,
+  isSaveButtonDisabled: PropTypes.bool.isRequired,
+  onInputChange: PropTypes.func.isRequired,
+  onSaveButtonClick: PropTypes.func.isRequired,
 };
 export default Form;
+/*
+cardName, uma string;
+cardDescription, uma string;
+cardAttr1, uma string;
+cardAttr2, uma string;
+cardAttr3, uma string;
+cardImage, uma string;
+cardRare, uma string;
+cardTrunfo, um boolean;
+hasTrunfo, um boolean;
+isSaveButtonDisabled, um boolean;
+onInputChange, uma callback;
+onSaveButtonClick, uma callback;
+*/
