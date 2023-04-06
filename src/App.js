@@ -16,10 +16,39 @@ class App extends React.Component {
       isSaveButtonDisabled: true,
       hasTrunfo: false,
       cardTrunfo: false,
+      deck: [],
     };
   }
 
-  onSaveButtonClick = () => null;
+  onSaveButtonClick = () => {
+    const {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      deck,
+    } = this.state;
+
+    const newCard = {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+    };
+
+    deck.push(newCard);
+    this.setState({
+      deck,
+    });
+
+    alert('');
+  };
 
   verify = () => {
     const {
@@ -52,15 +81,6 @@ class App extends React.Component {
       && totalPwIsLessThanMax
       && pN && pZero
     ));
-    console.log(valid);
-    // this.setState({ [name]: value });
-    // this.setState((estadoAnterior, _props) => ({
-    //   numeroDeCliques: estadoAnterior.numeroDeCliques + 1,
-    // }));
-
-    // this.setState((estadoAnterior) => ({
-    //   isSaveButtonDisabled: estadoAnterior.isSaveButtonDisabled,
-    // }));
 
     this.setState(() => ({
       isSaveButtonDisabled: valid,
@@ -73,6 +93,8 @@ class App extends React.Component {
   };
 
   render() {
+    const { deck } = this.state;
+    console.log(deck);
     const {
       cardName,
       cardDescription,
@@ -86,10 +108,6 @@ class App extends React.Component {
       cardTrunfo,
 
     } = this.state;
-
-    // this.setState({
-    //   isSaveButtonDisabled: valid,
-    // });
 
     return (
       <div>

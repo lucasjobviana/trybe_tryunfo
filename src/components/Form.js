@@ -7,10 +7,7 @@ class Form extends Component {
     console.log(null);
   }
 
-  onSaveButtonClick = () => null;
-
   render() {
-    console.log(this.onSaveButtonClick());
     const {
       cardName,
       cardDescription,
