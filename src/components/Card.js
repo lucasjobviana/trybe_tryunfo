@@ -14,16 +14,6 @@ class Card extends Component {
       cardTrunfo,
     } = this.props;
 
-    console.log(
-      cardName,
-      cardDescription,
-      cardAttr1,
-      cardAttr2,
-      cardAttr3,
-      cardImage,
-      cardRare,
-      cardTrunfo,
-    );
     const tElement = cardTrunfo
       ? <span data-testid="trunfo-card">Super Trunfo</span>
       : '';

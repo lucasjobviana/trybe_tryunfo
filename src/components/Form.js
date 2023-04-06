@@ -17,24 +17,41 @@ class Form extends Component {
       cardTrunfo,
       onInputChange,
       onSaveButtonClick,
+      hasTrunfo,
+      // isSaveButtonDisabled,
     } = this.props;
+    const { isSaveButtonDisabled } = this.props;
 
-    let { isSaveButtonDisabled, hasTrunfo, } = this.props;
+    // const haveName = cardName.length > 0 && cardName[0] !== ' ';
+    // const hD = cardDescription.length > 0 && cardDescription[0] !== ' ';
+    // const haveImage = cardImage.length > 0 && cardImage[0] !== ' ';
+    // const haveRare = cardRare.length > 0;
+    // const a1Number = Number.parseInt(cardAttr1, 10);
+    // const a2Number = Number.parseInt(cardAttr2, 10);
+    // const a3Number = Number.parseInt(cardAttr3, 10);
+    // const max = 210;
+    // const maxForce = 90;
+    // const totalPwIsLessThanMax = (a1Number + a2Number + a3Number) <= max;
+    // const pN = a1Number <= maxForce && a2Number <= maxForce && a3Number <= maxForce;
+    // const pZero = (a1Number >= 0) && (a2Number >= 0) && (a3Number >= 0);
 
-    const haveName = cardName.length > 0;
-    const haveDescrition = cardDescription.length > 0;
-    const haveImage = cardImage.length > 0;
-    const haveRare = cardRare.length > 0;
-    const attr1Number = Number.parseInt(cardAttr1);
-    const attr2Number = Number.parseInt(cardAttr2);
-    const attr3Number = Number.parseInt(cardAttr3);
-    const totalPwIsLessThanMax = (attr1Number + attr2Number + attr3Number) <= 210;
-    const powerIsLessThanMax = (attr1Number <= 90) && (attr2Number <= 90) && (attr3Number <= 90);
+    // isSaveButtonDisabled = !((
+    //   haveName && hD
+    //   && haveImage
+    //   && haveRare
+    //   && totalPwIsLessThanMax
+    //   && pN && pZero
+    // ));
+    /*
+    onInputChange({
+      target: {
+        name: 'isSaveButtonDisabled',
+        value: isSaveButtonDisabled,
+      },
+    });
+*/
 
-    isSaveButtonDisabled = false;
-    isSaveButtonDisabled = (haveName && haveDescrition && haveImage && haveRare && totalPwIsLessThanMax && powerIsLessThanMax) ? false : true;
-    console.log(isSaveButtonDisabled)
-
+    console.log(hasTrunfo);
 
     return (
       <form>
@@ -44,10 +61,10 @@ class Form extends Component {
           <input
             type="text"
             name="cardName"
-            onChange={onInputChange}
+            onChange={ onInputChange }
             data-testid="name-input"
             id="ipt-name"
-            value={cardName}
+            value={ cardName }
           />
         </label>
         <label htmlFor="ipt-descrition">
@@ -55,10 +72,10 @@ class Form extends Component {
           <input
             type="text"
             name="cardDescription"
-            onChange={onInputChange}
+            onChange={ onInputChange }
             data-testid="description-input"
             id="ipt-descrition"
-            value={cardDescription}
+            value={ cardDescription }
           />
         </label>
         <label htmlFor="ipt-atk">
@@ -68,10 +85,10 @@ class Form extends Component {
             max="90"
             type="number"
             name="cardAttr1"
-            onChange={onInputChange}
+            onChange={ onInputChange }
             data-testid="attr1-input"
             id="ipt-atk"
-            value={cardAttr1}
+            value={ cardAttr1 }
           />
         </label>
         <label htmlFor="ipt-dfs">
@@ -81,10 +98,10 @@ class Form extends Component {
             max="90"
             name="cardAttr2"
             type="number"
-            onChange={onInputChange}
+            onChange={ onInputChange }
             data-testid="attr2-input"
             id="ipt-dfs"
-            value={cardAttr2}
+            value={ cardAttr2 }
           />
         </label>
         <label htmlFor="ipt-vlc">
@@ -94,10 +111,10 @@ class Form extends Component {
             max="90"
             type="number"
             name="cardAttr3"
-            onChange={onInputChange}
+            onChange={ onInputChange }
             data-testid="attr3-input"
             id="ipt-vlc"
-            value={cardAttr3}
+            value={ cardAttr3 }
           />
         </label>
         <label htmlFor="ipt-src-img">
@@ -105,17 +122,17 @@ class Form extends Component {
           <input
             name="cardImage"
             type="text"
-            onChange={onInputChange}
+            onChange={ onInputChange }
             data-testid="image-input"
             id="ipt-src-img"
-            value={cardImage}
+            value={ cardImage }
           />
         </label>
         <label htmlFor="slc-tipo">
           Tipo:
           <select
-            onChange={onInputChange}
-            value={cardRare}
+            onChange={ onInputChange }
+            value={ cardRare }
             data-testid="rare-input"
             name="cardRare"
             id="slc-tipo"
@@ -130,16 +147,16 @@ class Form extends Component {
           <input
             name="cardTrunfo"
             data-testid="trunfo-input"
-            onChange={onInputChange}
+            onChange={ onInputChange }
             type="checkbox"
             id="ipt-trunfo"
-            checked={cardTrunfo}
+            checked={ cardTrunfo }
           />
         </label>
         <button
           data-testid="save-button"
-          onClick={onSaveButtonClick}
-          disabled={isSaveButtonDisabled}
+          onClick={ onSaveButtonClick }
+          disabled={ isSaveButtonDisabled }
         >
 
           Salvar
