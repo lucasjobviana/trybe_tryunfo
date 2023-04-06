@@ -15,29 +15,27 @@ class Form extends Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      hasTrunfo,
-      isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
     } = this.props;
+
+    let { isSaveButtonDisabled, hasTrunfo, } = this.props;
 
     const haveName = cardName.length > 0;
     const haveDescrition = cardDescription.length > 0;
     const haveImage = cardImage.length > 0;
     const haveRare = cardRare.length > 0;
-    const totalPwIsLessThanMax = (cardAttr1 + cardAttr2 + cardAttr3) <= 210;
-    const powerIsLessThanMax = (cardAttr1 <= 90) && (cardAttr2 <= 90) && (cardAttr3 <= 90);
+    const attr1Number = Number.parseInt(cardAttr1);
+    const attr2Number = Number.parseInt(cardAttr2);
+    const attr3Number = Number.parseInt(cardAttr3);
+    const totalPwIsLessThanMax = (attr1Number + attr2Number + attr3Number) <= 210;
+    const powerIsLessThanMax = (attr1Number <= 90) && (attr2Number <= 90) && (attr3Number <= 90);
 
-    if (cardName === '') {
-      console.log(haveName)
-      console.log(haveDescrition)
-      console.log(haveImage)
-      console.log(haveRare)
-      console.log(totalPwIsLessThanMax)
-      console.log(powerIsLessThanMax)
-    } else { alert('naoeh') }
+    isSaveButtonDisabled = false;
+    isSaveButtonDisabled = (haveName && haveDescrition && haveImage && haveRare && totalPwIsLessThanMax && powerIsLessThanMax) ? false : true;
+    console.log(isSaveButtonDisabled)
 
-    console.log(hasTrunfo);
+
     return (
       <form>
         <h1>Olá, mundo!</h1>

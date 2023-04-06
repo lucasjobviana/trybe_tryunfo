@@ -7,10 +7,10 @@ class App extends React.Component {
     super();
     this.state = {
       cardName: '',
-      cardDescription: 'Qual é esse pokemom?',
-      cardAttr1: '50',
-      cardAttr2: '40',
-      cardAttr3: '30',
+      cardDescription: '',
+      cardAttr1: '45',
+      cardAttr2: '45',
+      cardAttr3: '45',
       cardRare: 'normal',
       cardImage: 'bulba.png',
       isSaveButtonDisabled: true,
