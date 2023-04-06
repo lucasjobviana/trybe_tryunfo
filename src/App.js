@@ -58,19 +58,18 @@ class App extends React.Component {
     //   numeroDeCliques: estadoAnterior.numeroDeCliques + 1,
     // }));
 
-    this.setState((estadoAnterior) => ({
-      isSaveButtonDisabled: estadoAnterior.isSaveButtonDisabled,
-    }));
-
-    // this.setState(() => ({
-    //   isSaveButtonDisabled: valid,
+    // this.setState((estadoAnterior) => ({
+    //   isSaveButtonDisabled: estadoAnterior.isSaveButtonDisabled,
     // }));
+
+    this.setState(() => ({
+      isSaveButtonDisabled: valid,
+    }));
   };
 
   handleChanges = ({ target }) => {
     const { name, value } = target;
-    this.setState({ [name]: value });
-    this.verify();
+    this.setState({ [name]: value }, this.verify);
   };
 
   render() {
