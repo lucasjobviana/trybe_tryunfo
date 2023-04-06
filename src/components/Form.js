@@ -2,13 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Form extends Component {
-  constructor() {
-    super();
-    this.state = {
-      isSaveButtonDisabled: false,
-    };
-  }
-
   render() {
     const {
       cardName,
@@ -20,13 +13,12 @@ class Form extends Component {
       cardRare,
       cardTrunfo,
       hasTrunfo,
-      // isSaveButtonDisabled,
+      isSaveButtonDisabled,
       // onInputChange,
       onSaveButtonClick,
     } = this.props;
 
     const { onInputChange } = this.props;
-    const { isSaveButtonDisabled } = this.state;
 
     console.log(hasTrunfo);
     return (
@@ -57,6 +49,8 @@ class Form extends Component {
         <label htmlFor="ipt-atk">
           Força de Ataque:
           <input
+            min="0"
+            max="90"
             type="number"
             name="cardAttr1"
             onChange={ onInputChange }
@@ -68,6 +62,8 @@ class Form extends Component {
         <label htmlFor="ipt-dfs">
           Força de Defesa:
           <input
+            min="0"
+            max="90"
             name="cardAttr2"
             type="number"
             onChange={ onInputChange }
@@ -79,6 +75,8 @@ class Form extends Component {
         <label htmlFor="ipt-vlc">
           Velocidade:
           <input
+            min="0"
+            max="90"
             type="number"
             name="cardAttr3"
             onChange={ onInputChange }
@@ -148,7 +146,7 @@ Form.propTypes = {
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
   hasTrunfo: PropTypes.bool.isRequired,
-  // isSaveButtonDisabled: PropTypes.bool.isRequired,
+  isSaveButtonDisabled: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,
 };

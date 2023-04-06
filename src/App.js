@@ -13,6 +13,7 @@ class App extends React.Component {
       cardAttr3: '30',
       cardRare: 'normal',
       cardImage: 'bulba.png',
+      isSaveButtonDisabled: true,
       hasTrunfo: false,
       cardTrunfo: false,
     };
@@ -33,6 +34,7 @@ class App extends React.Component {
       cardAttr3,
       cardRare,
       cardImage,
+      isSaveButtonDisabled,
       hasTrunfo,
       cardTrunfo,
 
@@ -52,6 +54,7 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
           hasTrunfo={ hasTrunfo }
+          isSaveButtonDisabled={ isSaveButtonDisabled }
         />
         <Card
           cardName={ cardName }
