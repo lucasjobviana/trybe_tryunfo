@@ -105,8 +105,6 @@ class App extends React.Component {
   };
 
   render() {
-    const { deck } = this.state;
-    console.log(deck);
     const {
       cardName,
       cardDescription,
@@ -116,10 +114,25 @@ class App extends React.Component {
       cardRare,
       cardImage,
       isSaveButtonDisabled,
+      deck,
       hasTrunfo,
       cardTrunfo,
 
     } = this.state;
+
+    const cards = deck.map((card, ord) => (
+      <Card
+        key={ cardName + ord }
+        cardName={ card.cardName }
+        cardDescription={ card.cardDescription }
+        cardAttr1={ card.cardAttr1 }
+        cardAttr2={ card.cardAttr2 }
+        cardAttr3={ card.cardAttr3 }
+        cardImage={ card.cardImage }
+        cardRare={ card.cardRare }
+        cardTrunfo={ card.cardTrunfo }
+      />
+    ));
 
     return (
       <div>
@@ -149,6 +162,9 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
+
+        {cards}
+
       </div>
     );
   }
