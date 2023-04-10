@@ -24,6 +24,21 @@ class Form extends Component {
     } = this.props;
     const { isSaveButtonDisabled } = this.props;
 
+    let hasTrunfoMsg = 'Super Trunfo';
+    let inputSuper = '';
+    if (hasTrunfo) {
+      hasTrunfoMsg = 'Você já tem um Super Trunfo em seu baralho';
+    } else {
+      inputSuper = (<input
+        name="cardTrunfo"
+        data-testid="trunfo-input"
+        onChange={ onInputChange }
+        type="checkbox"
+        id="ipt-trunfo"
+        checked={ cardTrunfo }
+      />);
+    }
+
     // const haveName = cardName.length > 0 && cardName[0] !== ' ';
     // const hD = cardDescription.length > 0 && cardDescription[0] !== ' ';
     // const haveImage = cardImage.length > 0 && cardImage[0] !== ' ';
@@ -145,15 +160,8 @@ class Form extends Component {
           </select>
         </label>
         <label htmlFor="ipt-trunfo">
-          Super Trunfo
-          <input
-            name="cardTrunfo"
-            data-testid="trunfo-input"
-            onChange={ onInputChange }
-            type="checkbox"
-            id="ipt-trunfo"
-            checked={ cardTrunfo }
-          />
+          {hasTrunfoMsg}
+          {inputSuper}
         </label>
         <button
           data-testid="save-button"

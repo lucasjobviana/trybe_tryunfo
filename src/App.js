@@ -45,6 +45,8 @@ class App extends React.Component {
       cardRare,
     };
 
+    const isTrunfo = cardTrunfo === true;
+
     this.setState({
       cardName: '',
       cardDescription: '',
@@ -54,6 +56,7 @@ class App extends React.Component {
       cardAttr1: '0',
       cardAttr2: '0',
       cardAttr3: '0',
+      hasTrunfo: isTrunfo,
       deck: [...deck, newCard],
     });
   };
