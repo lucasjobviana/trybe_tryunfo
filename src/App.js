@@ -16,8 +16,34 @@ class App extends React.Component {
       isSaveButtonDisabled: true,
       hasTrunfo: false,
       cardTrunfo: false,
+      idSuperTrunfo: null,
       deck: [],
     };
+  }
+
+  deleteCard = ({ target }) => {
+    console.log(target);
+    const { deck } = this.state;
+
+    const cpDeck = deck.filter((card, ord) => {
+      console.log(ord)
+      if (ord === +target.id) {
+        console.log(card.cardTrunfo)
+        if (card.cardTrunfo) {
+          this.setState({ hasTrunfo: false })
+          //console.log('carTrunfo que estou exc:', cardTrunfo)
+        } return;
+      } return card;
+
+    });
+    console.log(cpDeck)
+    console.log(+target.id)
+    console.log(this.state.hasTrunfo)
+    this.setState({
+      deck: cpDeck,
+    }
+    );
+
   }
 
   onSaveButtonClick = (event) => {
@@ -31,6 +57,7 @@ class App extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
+      hasTrunfo,
       deck,
     } = this.state;
 
@@ -46,7 +73,7 @@ class App extends React.Component {
     };
 
     const isTrunfo = cardTrunfo === true;
-
+    console.log('verifiiiiicando', isTrunfo)
     this.setState({
       cardName: '',
       cardDescription: '',
@@ -56,7 +83,7 @@ class App extends React.Component {
       cardAttr1: '0',
       cardAttr2: '0',
       cardAttr3: '0',
-      hasTrunfo: isTrunfo,
+      hasTrunfo: isTrunfo ? true : hasTrunfo,
       deck: [...deck, newCard],
     });
   };
@@ -121,50 +148,65 @@ class App extends React.Component {
     } = this.state;
 
     const cards = deck.map((card, ord) => (
-      <Card
-        key={ cardName + ord }
-        cardName={ card.cardName }
-        cardDescription={ card.cardDescription }
-        cardAttr1={ card.cardAttr1 }
-        cardAttr2={ card.cardAttr2 }
-        cardAttr3={ card.cardAttr3 }
-        cardImage={ card.cardImage }
-        cardRare={ card.cardRare }
-        cardTrunfo={ card.cardTrunfo }
-      />
+      <>
+        <Card
+          key={cardName + ord}
+          cardName={card.cardName}
+          cardDescription={card.cardDescription}
+          cardAttr1={card.cardAttr1}
+          cardAttr2={card.cardAttr2}
+          cardAttr3={card.cardAttr3}
+          cardImage={card.cardImage}
+          cardRare={card.cardRare}
+          cardTrunfo={card.cardTrunfo}
+        />
+        <button key={'del' + ord + cardName} id={ord} data-testid="delete-button" onClick={this.deleteCard}>Excluir</button>
+
+      </>
+
     ));
 
+    //   <button
+    //   data-testid="save-button"
+    //   onClick={ onSaveButtonClick }
+    //   disabled={ isSaveButtonDisabled }
+    // >
+
+    //   Salvar
+
+    // </button>
     return (
       <div>
         <h1>Tryunfo</h1>
         <Form
-          onSaveButtonClick={ this.onSaveButtonClick }
-          salvar={ this.salvar }
-          onInputChange={ this.handleChanges }
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardRare={ cardRare }
-          cardTrunfo={ cardTrunfo }
-          hasTrunfo={ hasTrunfo }
-          isSaveButtonDisabled={ isSaveButtonDisabled }
+          onSaveButtonClick={this.onSaveButtonClick}
+          salvar={this.salvar}
+          onInputChange={this.handleChanges}
+          cardName={cardName}
+          cardDescription={cardDescription}
+          cardAttr1={cardAttr1}
+          cardAttr2={cardAttr2}
+          cardAttr3={cardAttr3}
+          cardImage={cardImage}
+          cardRare={cardRare}
+          cardTrunfo={cardTrunfo}
+          hasTrunfo={hasTrunfo}
+          isSaveButtonDisabled={isSaveButtonDisabled}
         />
         <Card
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardRare={ cardRare }
-          cardTrunfo={ cardTrunfo }
+          cardName={cardName}
+          cardDescription={cardDescription}
+          cardAttr1={cardAttr1}
+          cardAttr2={cardAttr2}
+          cardAttr3={cardAttr3}
+          cardImage={cardImage}
+          cardRare={cardRare}
+          cardTrunfo={cardTrunfo}
         />
+        <section id="deck">
+          {cards}
 
-        {cards}
-
+        </section>
       </div>
     );
   }
