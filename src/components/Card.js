@@ -21,28 +21,22 @@ class Card extends Component {
     return (
       <div>
         <p data-testid="name-card">
-          Nome:
           {cardName}
         </p>
         <img src={ cardImage } alt={ cardName } data-testid="image-card" />
         <p data-testid="description-card">
-          Descrição:
           {cardDescription}
         </p>
         <p data-testid="attr1-card">
-          ATK:
           {cardAttr1}
         </p>
         <p data-testid="attr2-card">
-          DEF:
           {cardAttr2}
         </p>
         <p data-testid="attr3-card">
-          SPD:
           {cardAttr3}
         </p>
         <p data-testid="rare-card">
-          Tipo:
           {cardRare}
         </p>
         {tElement}
