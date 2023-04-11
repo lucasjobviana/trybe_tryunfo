@@ -22,7 +22,7 @@ class Card extends Component {
       : '';
 
     return (
-      <div className={view}>
+      <div className={view} id={cardName + '-id'}>
         <p data-testid="name-card">
           {cardName}
         </p>

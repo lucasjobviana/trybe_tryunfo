@@ -153,6 +153,10 @@ class App extends React.Component {
 
   filterCards = ({ target }, filterName) => {
     console.log('filter cards aqui', target.value, filterName);
+    const { deck } = this.state;
+    const filterDeck = deck.filter((card) => card.cardName.includes(target.value));
+
+    console.log(filterDeck)
 
   }
 
