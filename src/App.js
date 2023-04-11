@@ -109,10 +109,10 @@ class App extends React.Component {
 
     const valid = !((
       haveName && hD
-    && haveImage
-    && haveRare
-    && totalPwIsLessThanMax
-    && pN && pZero
+      && haveImage
+      && haveRare
+      && totalPwIsLessThanMax
+      && pN && pZero
     ));
 
     this.setState(() => ({
@@ -126,42 +126,29 @@ class App extends React.Component {
     this.setState({ [name]: value }, this.verify);
   };
 
-  filterCards = ({ target }, filterName = 'name') => {
+  filterCards = ({ target }, filterName = 'cardName') => {
     console.log('filter cards aqui', target.value, filterName);
     const value = target.value === ' ' ? '' : target.value;
     const { deck } = this.state;
     let filterDeck = [];
-    const funcName = () => {
-      deck.forEach((card) => {
-        if (!card.cardName.includes(value)) { // target.value
-        // card.cardVisible = false;
-        } else {
-          filterDeck = [...filterDeck, card];// card.cardVisible = true;
-        }
-      });
-    };
-    const funcType = () => {
-      deck.forEach((card) => {
-        if (!card.cardRare.includes(value)) { // target.value
-        // card.cardVisible = false;
-        } else {
-          filterDeck = [...filterDeck, card];// card.cardVisible = true;
-        }
-      });
-    };
 
-    switch (filterName) {
-    case 'name': funcName(); break;
-    case 'type': funcType(); break;
-    default:
-    }
+    deck.forEach((card) => {
+      if (filterName === 'cardName') {
+        if (card[filterName].includes(value)) { // target.value
+          filterDeck = [...filterDeck, card];
+        }
+      } else if (card[filterName] === value || value === 'all') {
+        filterDeck = [...filterDeck, card];
+      }
+    });
+
     this.setState({
       deckVisible: filterDeck,
     });
   };
 
   filterCard = (event) => {
-    this.filterCards(event, 'type');
+    this.filterCards(event, 'cardRare');
   };
 
   render() {
@@ -200,9 +187,7 @@ class App extends React.Component {
           onClick={ this.deleteCard }
         >
           Excluir
-
         </button>
-
       </div>
 
     ));
@@ -245,17 +230,15 @@ class App extends React.Component {
               onInput={ this.filterCards }
             />
             <select onInput={ this.filterCard } data-testid="rare-filter">
-              <option value="todas">todas</option>
+              <option value="all">todas</option>
               <option value="normal">normal</option>
               <option value="raro">raro</option>
               <option value="muito raro">muito raro</option>
             </select>
           </form>
-
         </div>
         <section id="deck">
           {cards}
-
         </section>
       </div>
     );
