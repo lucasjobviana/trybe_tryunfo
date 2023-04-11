@@ -151,6 +151,11 @@ class App extends React.Component {
     this.setState({ [name]: value }, this.verify);
   };
 
+  filterCards = ({ target }, filterName) => {
+    console.log('filter cards aqui', target.value, filterName);
+
+  }
+
 
   render() {
 
@@ -236,7 +241,11 @@ class App extends React.Component {
           cardImage={cardImage}
           cardRare={cardRare}
           cardTrunfo={cardTrunfo}
+          isView={true}
         />
+        <div id="filters">
+          <input id="filterName" type="text" data-testid="name-filter" onInput={() => { this.filterCards(event, "filterName") }} />
+        </div>
         <section id="deck">
           {cards}
 

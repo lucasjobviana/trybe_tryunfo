@@ -12,18 +12,21 @@ class Card extends Component {
       cardImage,
       cardRare,
       cardTrunfo,
+      isView,
     } = this.props;
+
+    const view = isView ? "card view" : "card";
 
     const tElement = cardTrunfo
       ? <span data-testid="trunfo-card">Super Trunfo</span>
       : '';
 
     return (
-      <div className="card">
+      <div className={view}>
         <p data-testid="name-card">
           {cardName}
         </p>
-        <img src={ cardImage } alt={ cardName } data-testid="image-card" />
+        <img src={cardImage} alt={cardName} data-testid="image-card" />
         <p data-testid="description-card">
           {cardDescription}
         </p>
@@ -41,7 +44,7 @@ class Card extends Component {
         </p>
         {tElement}
 
-      </div>
+      </div >
     );
   }
 }

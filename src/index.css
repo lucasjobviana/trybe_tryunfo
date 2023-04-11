@@ -15,11 +15,30 @@ code {
 #root div {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .card {
   margin: 1px;
   border: 1px solid black;
-  position: relative;
   width: 30dvh;
+}
+
+.view {
+  position: absolute;
+  border: 3px solid blue;
+  right: 2vh;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  border: 1px solid orange;
+}
+
+
+#deck {
+  display: flex;
+  flex-wrap: wrap
 }
