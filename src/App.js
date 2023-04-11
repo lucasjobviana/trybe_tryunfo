@@ -19,6 +19,7 @@ class App extends React.Component {
       hasTrunfo: false,
       cardTrunfo: false,
       cardVisible: true,
+      deckVisible: deckPre,
       deck: deckPre,
     };
 
@@ -65,6 +66,7 @@ class App extends React.Component {
 
     this.setState({
       deck: cpDeck,
+      deckVisible: cpDeck,
     });
   };
 
@@ -81,6 +83,7 @@ class App extends React.Component {
       cardTrunfo,
       hasTrunfo,
       cardVisible,
+      deckVisible,
       deck,
     } = this.state;
 
@@ -109,6 +112,7 @@ class App extends React.Component {
       cardAttr3: '0',
       hasTrunfo: isTrunfo ? true : hasTrunfo,
       deck: [...deck, newCard],
+      deckVisible: [...deckVisible, newCard]
     });
   };
 
@@ -162,15 +166,17 @@ class App extends React.Component {
     let filterDeck = []; //deck.filter((card) => card.cardName.includes(target.value));
     deck.forEach((card) => {
       if (!card.cardName.includes(value)) {//target.value
-        card.cardVisible = false;
+        //card.cardVisible = false;
+
       } else {
-        card.cardVisible = true;
+        //card.cardVisible = true;
+        filterDeck = [...filterDeck, card]
       }
-      filterDeck = [...filterDeck, card]
+
     })
 
     this.setState({
-      deck: filterDeck
+      deckVisible: filterDeck
     })
 
 
@@ -189,12 +195,13 @@ class App extends React.Component {
       cardImage,
       isSaveButtonDisabled,
       deck,
+      deckVisible,
       hasTrunfo,
       cardTrunfo,
 
     } = this.state;
 
-    const cards = deck.map((card, ord) => {
+    const cards = deckVisible.map((card, ord) => {
       console.log(card.cardName + ord);
 
       return (
