@@ -16,21 +16,21 @@ class Card extends Component {
       isView,
     } = this.props;
 
-    const view = isView ? "card view" : "card";
+    const view = isView ? 'card view' : 'card';
 
     const tElement = cardTrunfo
       ? <span data-testid="trunfo-card">Super Trunfo</span>
       : '';
 
     const visibleCardCss = !cardVisible
-      ? { display: 'none' } : { display: 'flex' }
+      ? { display: 'none' } : { display: 'flex' };
 
     return (
-      <div className={view} id={cardName + '-id'} style={visibleCardCss} >
+      <div className={ view } id={ `${cardName}-id` } style={ visibleCardCss }>
         <p data-testid="name-card">
           {cardName}
         </p>
-        <img src={cardImage} alt={cardName} data-testid="image-card" />
+        <img src={ cardImage } alt={ cardName } data-testid="image-card" />
         <p data-testid="description-card">
           {cardDescription}
         </p>
@@ -48,7 +48,7 @@ class Card extends Component {
         </p>
         {tElement}
 
-      </div >
+      </div>
     );
   }
 }
@@ -62,5 +62,7 @@ Card.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
+  isView: PropTypes.bool.isRequired,
+  cardVisible: PropTypes.bool.isRequired,
 };
 export default Card;

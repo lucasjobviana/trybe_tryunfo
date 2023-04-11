@@ -32,10 +32,10 @@ class Form extends Component {
       inputSuper = (<input
         name="cardTrunfo"
         data-testid="trunfo-input"
-        onChange={onInputChange}
+        onChange={ onInputChange }
         type="checkbox"
         id="ipt-trunfo"
-        checked={cardTrunfo}
+        checked={ cardTrunfo }
       />);
     }
 
@@ -78,10 +78,10 @@ class Form extends Component {
           <input
             type="text"
             name="cardName"
-            onChange={onInputChange}
+            onChange={ onInputChange }
             data-testid="name-input"
             id="ipt-name"
-            value={cardName}
+            value={ cardName }
           />
         </label>
         <label htmlFor="ipt-descrition">
@@ -89,10 +89,10 @@ class Form extends Component {
           <input
             type="text"
             name="cardDescription"
-            onChange={onInputChange}
+            onChange={ onInputChange }
             data-testid="description-input"
             id="ipt-descrition"
-            value={cardDescription}
+            value={ cardDescription }
           />
         </label>
         <label htmlFor="ipt-atk">
@@ -102,10 +102,10 @@ class Form extends Component {
             max="90"
             type="number"
             name="cardAttr1"
-            onChange={onInputChange}
+            onChange={ onInputChange }
             data-testid="attr1-input"
             id="ipt-atk"
-            value={cardAttr1}
+            value={ cardAttr1 }
           />
         </label>
         <label htmlFor="ipt-dfs">
@@ -115,10 +115,10 @@ class Form extends Component {
             max="90"
             name="cardAttr2"
             type="number"
-            onChange={onInputChange}
+            onChange={ onInputChange }
             data-testid="attr2-input"
             id="ipt-dfs"
-            value={cardAttr2}
+            value={ cardAttr2 }
           />
         </label>
         <label htmlFor="ipt-vlc">
@@ -128,10 +128,10 @@ class Form extends Component {
             max="90"
             type="number"
             name="cardAttr3"
-            onChange={onInputChange}
+            onChange={ onInputChange }
             data-testid="attr3-input"
             id="ipt-vlc"
-            value={cardAttr3}
+            value={ cardAttr3 }
           />
         </label>
         <label htmlFor="ipt-src-img">
@@ -139,17 +139,17 @@ class Form extends Component {
           <input
             name="cardImage"
             type="text"
-            onChange={onInputChange}
+            onChange={ onInputChange }
             data-testid="image-input"
             id="ipt-src-img"
-            value={cardImage}
+            value={ cardImage }
           />
         </label>
         <label htmlFor="slc-tipo">
           Tipo:
           <select
-            onChange={onInputChange}
-            value={cardRare}
+            onChange={ onInputChange }
+            value={ cardRare }
             data-testid="rare-input"
             name="cardRare"
             id="slc-tipo"
@@ -165,8 +165,8 @@ class Form extends Component {
         </label>
         <button
           data-testid="save-button"
-          onClick={onSaveButtonClick}
-          disabled={isSaveButtonDisabled}
+          onClick={ onSaveButtonClick }
+          disabled={ isSaveButtonDisabled }
         >
 
           Salvar
@@ -176,7 +176,6 @@ class Form extends Component {
       </form>
     );
   }
-
 }
 
 Form.propTypes = {

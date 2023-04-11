@@ -1,12 +1,12 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import teste from './teste';
 
 class App extends React.Component {
   constructor() {
     super();
-    const deckPre = this.testeFunction();
-    console.log(deckPre)
+    const deckPre = teste();
     this.state = {
       cardName: '',
       cardDescription: '',
@@ -22,48 +22,18 @@ class App extends React.Component {
       deckVisible: deckPre,
       deck: deckPre,
     };
-
-
   }
-
-  testeFunction = () => {
-
-    let arrayTest = [];
-    for (let i = 0; i < 5; i += 1) {
-      let attr = (i * 10).toString()
-      arrayTest = [...arrayTest, {
-        cardName: 'name_' + i,
-        cardDescription: 'descrition_' + 1,
-        cardAttr1: attr,
-        cardAttr2: attr,
-        cardAttr3: attr,
-        cardRare: 'normal',
-        cardVisible: true,
-        cardImage: 'image_' + 1,
-        cardTrunfo: false,
-      }];
-
-    } return arrayTest;
-  }
-
 
   deleteCard = ({ target }) => {
-    console.log(target);
     const { deck } = this.state;
-
     const cpDeck = deck.filter((card, ord) => {
-      console.log(ord);
       if (ord === +target.id) {
         console.log(card.cardTrunfo);
         if (card.cardTrunfo) {
           this.setState({ hasTrunfo: false });
-          // console.log('carTrunfo que estou exc:', cardTrunfo)
         } return;
       } return card;
     });
-    console.log(cpDeck);
-    console.log(+target.id);
-
     this.setState({
       deck: cpDeck,
       deckVisible: cpDeck,
@@ -98,9 +68,7 @@ class App extends React.Component {
       cardRare,
       cardVisible,
     };
-
     const isTrunfo = cardTrunfo === true;
-    console.log('verifiiiiicando', isTrunfo);
     this.setState({
       cardName: '',
       cardDescription: '',
@@ -112,7 +80,7 @@ class App extends React.Component {
       cardAttr3: '0',
       hasTrunfo: isTrunfo ? true : hasTrunfo,
       deck: [...deck, newCard],
-      deckVisible: [...deckVisible, newCard]
+      deckVisible: [...deckVisible, newCard],
     });
   };
 
@@ -125,7 +93,6 @@ class App extends React.Component {
       cardAttr3,
       cardImage,
       cardRare,
-      // isSaveButtonDisabled,
     } = this.state;
     const haveName = cardName.length > 0 && cardName[0] !== ' ';
     const hD = cardDescription.length > 0 && cardDescription[0] !== ' ';
@@ -142,10 +109,10 @@ class App extends React.Component {
 
     const valid = !((
       haveName && hD
-      && haveImage
-      && haveRare
-      && totalPwIsLessThanMax
-      && pN && pZero
+    && haveImage
+    && haveRare
+    && totalPwIsLessThanMax
+    && pN && pZero
     ));
 
     this.setState(() => ({
@@ -158,33 +125,26 @@ class App extends React.Component {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({ [name]: value }, this.verify);
   };
-  d
+
   filterCards = ({ target }, filterName) => {
     console.log('filter cards aqui', target.value, filterName);
     const value = target.value === ' ' ? '' : target.value;
     const { deck } = this.state;
-    let filterDeck = []; //deck.filter((card) => card.cardName.includes(target.value));
+    let filterDeck = [];
     deck.forEach((card) => {
-      if (!card.cardName.includes(value)) {//target.value
-        //card.cardVisible = false;
-
+      if (!card.cardName.includes(value)) { // target.value
+      // card.cardVisible = false;
       } else {
-        //card.cardVisible = true;
-        filterDeck = [...filterDeck, card]
+        filterDeck = [...filterDeck, card];// card.cardVisible = true;
       }
-
-    })
+    });
 
     this.setState({
-      deckVisible: filterDeck
-    })
-
-
-  }
-
+      deckVisible: filterDeck,
+    });
+  };
 
   render() {
-
     const {
       cardName,
       cardDescription,
@@ -194,85 +154,78 @@ class App extends React.Component {
       cardRare,
       cardImage,
       isSaveButtonDisabled,
-      deck,
       deckVisible,
       hasTrunfo,
       cardTrunfo,
-
     } = this.state;
 
-    const cards = deckVisible.map((card, ord) => {
-      console.log(card.cardName + ord);
+    const cards = deckVisible.map((card, ord) => (
+      <div key={ ord + ord }>
+        <Card
+          key={ card.cardName + ord }
+          cardName={ card.cardName }
+          cardDescription={ card.cardDescription }
+          cardAttr1={ card.cardAttr1 }
+          cardAttr2={ card.cardAttr2 }
+          cardAttr3={ card.cardAttr3 }
+          cardImage={ card.cardImage }
+          cardRare={ card.cardRare }
+          cardTrunfo={ card.cardTrunfo }
+          cardVisible={ card.cardVisible }
+        />
+        <button
+          key={ `del${ord}${card.cardName}` }
+          id={ ord }
+          data-testid="delete-button"
+          onClick={ this.deleteCard }
+        >
+          Excluir
 
-      return (
-        <div key={ord + ord}>
-          <Card
-            key={card.cardName + ord}
-            cardName={card.cardName}
-            cardDescription={card.cardDescription}
-            cardAttr1={card.cardAttr1}
-            cardAttr2={card.cardAttr2}
-            cardAttr3={card.cardAttr3}
-            cardImage={card.cardImage}
-            cardRare={card.cardRare}
-            cardTrunfo={card.cardTrunfo}
-            cardVisible={card.cardVisible}
-          />
-          <button
-            key={`del${ord}${card.cardName}`}
-            id={ord}
-            data-testid="delete-button"
-            onClick={this.deleteCard}
-          >
-            Excluir
+        </button>
 
-          </button>
+      </div>
 
-        </div>
+    ));
 
-      );
-    });
-
-    //   <button
-    //   data-testid="save-button"
-    //   onClick={ onSaveButtonClick }
-    //   disabled={ isSaveButtonDisabled }
-    // >
-
-    //   Salvar
-
-    // </button>
     return (
       <div>
         <h1>Tryunfo</h1>
         <Form
-          onSaveButtonClick={this.onSaveButtonClick}
-          salvar={this.salvar}
-          onInputChange={this.handleChanges}
-          cardName={cardName}
-          cardDescription={cardDescription}
-          cardAttr1={cardAttr1}
-          cardAttr2={cardAttr2}
-          cardAttr3={cardAttr3}
-          cardImage={cardImage}
-          cardRare={cardRare}
-          cardTrunfo={cardTrunfo}
-          hasTrunfo={hasTrunfo}
-          isSaveButtonDisabled={isSaveButtonDisabled}
+          onSaveButtonClick={ this.onSaveButtonClick }
+          salvar={ this.salvar }
+          onInputChange={ this.handleChanges }
+          cardName={ cardName }
+          cardDescription={ cardDescription }
+          cardAttr1={ cardAttr1 }
+          cardAttr2={ cardAttr2 }
+          cardAttr3={ cardAttr3 }
+          cardImage={ cardImage }
+          cardRare={ cardRare }
+          cardTrunfo={ cardTrunfo }
+          hasTrunfo={ hasTrunfo }
+          isSaveButtonDisabled={ isSaveButtonDisabled }
         />
         <Card
-          cardName={cardName}
-          cardDescription={cardDescription}
-          cardAttr1={cardAttr1}
-          cardAttr2={cardAttr2}
-          cardAttr3={cardAttr3}
-          cardImage={cardImage}
-          cardRare={cardRare}
-          cardTrunfo={cardTrunfo}
-          isView={true}
+          cardName={ cardName }
+          cardDescription={ cardDescription }
+          cardAttr1={ cardAttr1 }
+          cardAttr2={ cardAttr2 }
+          cardAttr3={ cardAttr3 }
+          cardImage={ cardImage }
+          cardRare={ cardRare }
+          cardTrunfo={ cardTrunfo }
+          isView
         />
         <div id="filters">
-          <input id="filterName" type="text" data-testid="name-filter" onInput={() => { this.filterCards(event, "filterName") }} />
+          <form>
+            <input
+              id="filterName"
+              type="text"
+              data-testid="name-filter"
+              onInput={ this.filterCards }
+            />
+          </form>
+
         </div>
         <section id="deck">
           {cards}
@@ -281,8 +234,6 @@ class App extends React.Component {
       </div>
     );
   }
-
 }
-
 
 export default App;
