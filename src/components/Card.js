@@ -12,6 +12,7 @@ class Card extends Component {
       cardImage,
       cardRare,
       cardTrunfo,
+      cardVisible,
       isView,
     } = this.props;
 
@@ -21,8 +22,11 @@ class Card extends Component {
       ? <span data-testid="trunfo-card">Super Trunfo</span>
       : '';
 
+    const visibleCardCss = !cardVisible
+      ? { display: 'none' } : { display: 'flex' }
+
     return (
-      <div className={view} id={cardName + '-id'}>
+      <div className={view} id={cardName + '-id'} style={visibleCardCss} >
         <p data-testid="name-card">
           {cardName}
         </p>

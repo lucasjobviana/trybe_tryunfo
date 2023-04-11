@@ -18,6 +18,7 @@ class App extends React.Component {
       isSaveButtonDisabled: true,
       hasTrunfo: false,
       cardTrunfo: false,
+      cardVisible: true,
       deck: deckPre,
     };
 
@@ -36,6 +37,7 @@ class App extends React.Component {
         cardAttr2: attr,
         cardAttr3: attr,
         cardRare: 'normal',
+        cardVisible: true,
         cardImage: 'image_' + 1,
         cardTrunfo: false,
       }];
@@ -78,6 +80,7 @@ class App extends React.Component {
       cardRare,
       cardTrunfo,
       hasTrunfo,
+      cardVisible,
       deck,
     } = this.state;
 
@@ -90,6 +93,7 @@ class App extends React.Component {
       cardImage,
       cardTrunfo,
       cardRare,
+      cardVisible,
     };
 
     const isTrunfo = cardTrunfo === true;
@@ -150,13 +154,25 @@ class App extends React.Component {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({ [name]: value }, this.verify);
   };
-
+  d
   filterCards = ({ target }, filterName) => {
     console.log('filter cards aqui', target.value, filterName);
+    const value = target.value === ' ' ? '' : target.value;
     const { deck } = this.state;
-    const filterDeck = deck.filter((card) => card.cardName.includes(target.value));
+    let filterDeck = []; //deck.filter((card) => card.cardName.includes(target.value));
+    deck.forEach((card) => {
+      if (!card.cardName.includes(value)) {//target.value
+        card.cardVisible = false;
+      } else {
+        card.cardVisible = true;
+      }
+      filterDeck = [...filterDeck, card]
+    })
 
-    console.log(filterDeck)
+    this.setState({
+      deck: filterDeck
+    })
+
 
   }
 
@@ -193,6 +209,7 @@ class App extends React.Component {
             cardImage={card.cardImage}
             cardRare={card.cardRare}
             cardTrunfo={card.cardTrunfo}
+            cardVisible={card.cardVisible}
           />
           <button
             key={`del${ord}${card.cardName}`}
