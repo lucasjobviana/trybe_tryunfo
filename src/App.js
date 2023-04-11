@@ -126,22 +126,42 @@ class App extends React.Component {
     this.setState({ [name]: value }, this.verify);
   };
 
-  filterCards = ({ target }, filterName) => {
+  filterCards = ({ target }, filterName = 'name') => {
     console.log('filter cards aqui', target.value, filterName);
     const value = target.value === ' ' ? '' : target.value;
     const { deck } = this.state;
     let filterDeck = [];
-    deck.forEach((card) => {
-      if (!card.cardName.includes(value)) { // target.value
-      // card.cardVisible = false;
-      } else {
-        filterDeck = [...filterDeck, card];// card.cardVisible = true;
-      }
-    });
+    const funcName = () => {
+      deck.forEach((card) => {
+        if (!card.cardName.includes(value)) { // target.value
+        // card.cardVisible = false;
+        } else {
+          filterDeck = [...filterDeck, card];// card.cardVisible = true;
+        }
+      });
+    };
+    const funcType = () => {
+      deck.forEach((card) => {
+        if (!card.cardRare.includes(value)) { // target.value
+        // card.cardVisible = false;
+        } else {
+          filterDeck = [...filterDeck, card];// card.cardVisible = true;
+        }
+      });
+    };
 
+    switch (filterName) {
+    case 'name': funcName(); break;
+    case 'type': funcType(); break;
+    default:
+    }
     this.setState({
       deckVisible: filterDeck,
     });
+  };
+
+  filterCard = (event) => {
+    this.filterCards(event, 'type');
   };
 
   render() {
@@ -224,6 +244,12 @@ class App extends React.Component {
               data-testid="name-filter"
               onInput={ this.filterCards }
             />
+            <select onInput={ this.filterCard } data-testid="rare-filter">
+              <option value="todas">todas</option>
+              <option value="normal">normal</option>
+              <option value="raro">raro</option>
+              <option value="muito raro">muito raro</option>
+            </select>
           </form>
 
         </div>
