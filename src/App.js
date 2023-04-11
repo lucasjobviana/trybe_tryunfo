@@ -5,6 +5,8 @@ import Card from './components/Card';
 class App extends React.Component {
   constructor() {
     super();
+    const deckPre = this.testeFunction();
+    console.log(deckPre)
     this.state = {
       cardName: '',
       cardDescription: '',
@@ -16,9 +18,31 @@ class App extends React.Component {
       isSaveButtonDisabled: true,
       hasTrunfo: false,
       cardTrunfo: false,
-      deck: [],
+      deck: deckPre,
     };
+
+
   }
+
+  testeFunction = () => {
+
+    let arrayTest = [];
+    for (let i = 0; i < 5; i += 1) {
+      let attr = (i * 10).toString()
+      arrayTest = [...arrayTest, {
+        cardName: 'name_' + i,
+        cardDescription: 'descrition_' + 1,
+        cardAttr1: attr,
+        cardAttr2: attr,
+        cardAttr3: attr,
+        cardRare: 'normal',
+        cardImage: 'image_' + 1,
+        cardTrunfo: false,
+      }];
+
+    } return arrayTest;
+  }
+
 
   deleteCard = ({ target }) => {
     console.log(target);
@@ -127,7 +151,9 @@ class App extends React.Component {
     this.setState({ [name]: value }, this.verify);
   };
 
+
   render() {
+
     const {
       cardName,
       cardDescription,
@@ -147,23 +173,23 @@ class App extends React.Component {
       console.log(card.cardName + ord);
 
       return (
-        <div key={ ord + ord }>
+        <div key={ord + ord}>
           <Card
-            key={ card.cardName + ord }
-            cardName={ card.cardName }
-            cardDescription={ card.cardDescription }
-            cardAttr1={ card.cardAttr1 }
-            cardAttr2={ card.cardAttr2 }
-            cardAttr3={ card.cardAttr3 }
-            cardImage={ card.cardImage }
-            cardRare={ card.cardRare }
-            cardTrunfo={ card.cardTrunfo }
+            key={card.cardName + ord}
+            cardName={card.cardName}
+            cardDescription={card.cardDescription}
+            cardAttr1={card.cardAttr1}
+            cardAttr2={card.cardAttr2}
+            cardAttr3={card.cardAttr3}
+            cardImage={card.cardImage}
+            cardRare={card.cardRare}
+            cardTrunfo={card.cardTrunfo}
           />
           <button
-            key={ `del${ord}${card.cardName}` }
-            id={ ord }
+            key={`del${ord}${card.cardName}`}
+            id={ord}
             data-testid="delete-button"
-            onClick={ this.deleteCard }
+            onClick={this.deleteCard}
           >
             Excluir
 
@@ -187,29 +213,29 @@ class App extends React.Component {
       <div>
         <h1>Tryunfo</h1>
         <Form
-          onSaveButtonClick={ this.onSaveButtonClick }
-          salvar={ this.salvar }
-          onInputChange={ this.handleChanges }
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardRare={ cardRare }
-          cardTrunfo={ cardTrunfo }
-          hasTrunfo={ hasTrunfo }
-          isSaveButtonDisabled={ isSaveButtonDisabled }
+          onSaveButtonClick={this.onSaveButtonClick}
+          salvar={this.salvar}
+          onInputChange={this.handleChanges}
+          cardName={cardName}
+          cardDescription={cardDescription}
+          cardAttr1={cardAttr1}
+          cardAttr2={cardAttr2}
+          cardAttr3={cardAttr3}
+          cardImage={cardImage}
+          cardRare={cardRare}
+          cardTrunfo={cardTrunfo}
+          hasTrunfo={hasTrunfo}
+          isSaveButtonDisabled={isSaveButtonDisabled}
         />
         <Card
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardRare={ cardRare }
-          cardTrunfo={ cardTrunfo }
+          cardName={cardName}
+          cardDescription={cardDescription}
+          cardAttr1={cardAttr1}
+          cardAttr2={cardAttr2}
+          cardAttr3={cardAttr3}
+          cardImage={cardImage}
+          cardRare={cardRare}
+          cardTrunfo={cardTrunfo}
         />
         <section id="deck">
           {cards}
@@ -218,6 +244,8 @@ class App extends React.Component {
       </div>
     );
   }
+
 }
+
 
 export default App;

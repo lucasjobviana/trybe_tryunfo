@@ -19,7 +19,7 @@ class Card extends Component {
       : '';
 
     return (
-      <div>
+      <div className="card">
         <p data-testid="name-card">
           {cardName}
         </p>
