@@ -12,7 +12,7 @@ class Card extends Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      cardVisible,
+      // cardVisible,
       isView,
     } = this.props;
 
@@ -22,27 +22,33 @@ class Card extends Component {
       ? <span data-testid="trunfo-card">Super Trunfo</span>
       : '';
 
-    const visibleCardCss = !cardVisible
-      ? { display: 'none' } : { display: 'flex' };
-
+    // const visibleCardCss = !cardVisible
+    //   ? { display: 'none' } : { display: 'flex' };
+    //   id={ `${cardName}-id` }
     return (
-      <div className={ view } id={ `${cardName}-id` } style={ visibleCardCss }>
+      <div className={ view }>
+        Nome:
         <p data-testid="name-card">
           {cardName}
         </p>
         <img src={ cardImage } alt={ cardName } data-testid="image-card" />
+        Descrição:
         <p data-testid="description-card">
           {cardDescription}
         </p>
+        Ataque:
         <p data-testid="attr1-card">
           {cardAttr1}
         </p>
+        Defesa:
         <p data-testid="attr2-card">
           {cardAttr2}
         </p>
+        Magia:
         <p data-testid="attr3-card">
           {cardAttr3}
         </p>
+        Raridade:
         <p data-testid="rare-card">
           {cardRare}
         </p>
@@ -63,6 +69,6 @@ Card.propTypes = {
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
   isView: PropTypes.bool.isRequired,
-  cardVisible: PropTypes.bool.isRequired,
+  // cardVisible: PropTypes.bool.isRequired,
 };
 export default Card;

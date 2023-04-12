@@ -25,9 +25,10 @@ code {
 }
 
 .view {
-  position: absolute;
+  /* position: absolute; */
   border: 3px solid blue;
-  right: 2vh;
+  /* right: 5px; */
+  /* z-index: 4; */
 }
 
 form {

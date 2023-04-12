@@ -1,12 +1,12 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
-import teste from './teste';
+// import teste from './teste';
 
 class App extends React.Component {
   constructor() {
     super();
-    const deckPre = teste();
+    const deckPre = [];// teste();
     this.state = {
       cardName: '',
       cardDescription: '',
@@ -179,6 +179,7 @@ class App extends React.Component {
           cardRare={ card.cardRare }
           cardTrunfo={ card.cardTrunfo }
           cardVisible={ card.cardVisible }
+          isView={ false }
         />
         <button
           key={ `del${ord}${card.cardName}` }
@@ -191,6 +192,8 @@ class App extends React.Component {
       </div>
 
     ));
+
+    const verdade = true;
 
     return (
       <div>
@@ -219,7 +222,7 @@ class App extends React.Component {
           cardImage={ cardImage }
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
-          isView
+          isView={ verdade }
         />
         <div id="filters">
           <form>
@@ -243,6 +246,4 @@ class App extends React.Component {
       </div>
     );
   }
-}
-
-export default App;
+} export default App;
