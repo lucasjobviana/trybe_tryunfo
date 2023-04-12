@@ -138,6 +138,7 @@ class Form extends Component {
             data-testid="image-input"
             id="ipt-src-img"
             value={ cardImage }
+
           />
         </label>
         <label htmlFor="slc-tipo">
@@ -148,6 +149,7 @@ class Form extends Component {
             data-testid="rare-input"
             name="cardRare"
             id="slc-tipo"
+
           >
             <option value="normal">normal</option>
             <option value="raro">raro</option>
