@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import Filter from './components/Filter';
 // import teste from './teste';
 
 class App extends React.Component {
@@ -148,22 +149,22 @@ class App extends React.Component {
     });
   };
 
-  filterCard = (event) => {
-    this.filterCards(event, 'cardRare');
-  };
+  // filterCard = (event) => {
+  //   this.filterCards(event, 'cardRare');
+  // };
 
-  filterTrunfo = (event) => {
-    console.log('estou chamando minha função filterTrunfo');
-    console.log(event);
-    console.log(event.target.checked);
-    const filters = document.querySelectorAll('.filter');
+  // filterTrunfo = (event) => {
+  //   console.log('estou chamando minha função filterTrunfo');
+  //   console.log(event);
+  //   console.log(event.target.checked);
+  //   const filters = document.querySelectorAll('.filter');
 
-    filters.forEach((filter) => {
-      filter.disabled = !!event.target.checked;
-    });
+  //   filters.forEach((filter) => {
+  //     filter.disabled = !!event.target.checked;
+  //   });
 
-    this.filterCards(event, 'cardTrunfo');
-  };
+  //   this.filterCards(event, 'cardTrunfo');
+  // };
 
   render() {
     const {
@@ -238,38 +239,7 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
           isView={ verdade }
         />
-        <div id="filters">
-          <form>
-            <input
-              id="filterName"
-              className="filter"
-              type="text"
-              data-testid="name-filter"
-              onInput={ this.filterCards }
-            />
-            <select
-              className="filter"
-              onInput={ this.filterCard }
-              data-testid="rare-filter"
-
-            >
-              <option value="all">todas</option>
-              <option value="normal">normal</option>
-              <option value="raro">raro</option>
-              <option value="muito raro">muito raro</option>
-            </select>
-            <label htmlFor="trunfoFileter">
-              Super Trunfo
-              <input
-                type="checkbox"
-                id="trunfoFilter"
-                data-testid="trunfo-filter"
-                onInput={ this.filterTrunfo }
-              />
-            </label>
-
-          </form>
-        </div>
+        <Filter filterCards={ this.filterCards } />
         <section id="deck">
           {cards}
         </section>
