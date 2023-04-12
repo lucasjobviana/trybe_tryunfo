@@ -128,7 +128,8 @@ class App extends React.Component {
 
   filterCards = ({ target }, filterName = 'cardName') => {
     console.log('filter cards aqui', target.value, filterName);
-    const value = target.value === ' ' ? '' : target.value;
+    let value = target.value === ' ' ? '' : target.value;
+    value = filterName === 'cardTrunfo' ? target.checked : value;
     const { deck } = this.state;
     let filterDeck = [];
 
@@ -151,6 +152,20 @@ class App extends React.Component {
     this.filterCards(event, 'cardRare');
   };
 
+  filterTrunfo = (event) => {
+    console.log('estou chamando minha função filterTrunfo');
+    console.log(event);
+    console.log(event.target.checked);
+    const filters = document.querySelectorAll('.filter');
+
+    filters.forEach((filter) => {
+      event.target.checked ? filter.classList.add('disabled') : filter.classList.remove('disabled')
+    })
+
+
+    this.filterCards(event, 'cardTrunfo');
+  };
+
   render() {
     const {
       cardName,
@@ -167,25 +182,25 @@ class App extends React.Component {
     } = this.state;
 
     const cards = deckVisible.map((card, ord) => (
-      <div key={ ord + ord }>
+      <div key={ord + ord}>
         <Card
-          key={ card.cardName + ord }
-          cardName={ card.cardName }
-          cardDescription={ card.cardDescription }
-          cardAttr1={ card.cardAttr1 }
-          cardAttr2={ card.cardAttr2 }
-          cardAttr3={ card.cardAttr3 }
-          cardImage={ card.cardImage }
-          cardRare={ card.cardRare }
-          cardTrunfo={ card.cardTrunfo }
-          cardVisible={ card.cardVisible }
-          isView={ false }
+          key={card.cardName + ord}
+          cardName={card.cardName}
+          cardDescription={card.cardDescription}
+          cardAttr1={card.cardAttr1}
+          cardAttr2={card.cardAttr2}
+          cardAttr3={card.cardAttr3}
+          cardImage={card.cardImage}
+          cardRare={card.cardRare}
+          cardTrunfo={card.cardTrunfo}
+          cardVisible={card.cardVisible}
+          isView={false}
         />
         <button
-          key={ `del${ord}${card.cardName}` }
-          id={ ord }
+          key={`del${ord}${card.cardName}`}
+          id={ord}
           data-testid="delete-button"
-          onClick={ this.deleteCard }
+          onClick={this.deleteCard}
         >
           Excluir
         </button>
@@ -199,45 +214,61 @@ class App extends React.Component {
       <div>
         <h1>Tryunfo</h1>
         <Form
-          onSaveButtonClick={ this.onSaveButtonClick }
-          salvar={ this.salvar }
-          onInputChange={ this.handleChanges }
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardRare={ cardRare }
-          cardTrunfo={ cardTrunfo }
-          hasTrunfo={ hasTrunfo }
-          isSaveButtonDisabled={ isSaveButtonDisabled }
+          onSaveButtonClick={this.onSaveButtonClick}
+          salvar={this.salvar}
+          onInputChange={this.handleChanges}
+          cardName={cardName}
+          cardDescription={cardDescription}
+          cardAttr1={cardAttr1}
+          cardAttr2={cardAttr2}
+          cardAttr3={cardAttr3}
+          cardImage={cardImage}
+          cardRare={cardRare}
+          cardTrunfo={cardTrunfo}
+          hasTrunfo={hasTrunfo}
+          isSaveButtonDisabled={isSaveButtonDisabled}
         />
         <Card
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardRare={ cardRare }
-          cardTrunfo={ cardTrunfo }
-          isView={ verdade }
+          cardName={cardName}
+          cardDescription={cardDescription}
+          cardAttr1={cardAttr1}
+          cardAttr2={cardAttr2}
+          cardAttr3={cardAttr3}
+          cardImage={cardImage}
+          cardRare={cardRare}
+          cardTrunfo={cardTrunfo}
+          isView={verdade}
         />
         <div id="filters">
           <form>
             <input
               id="filterName"
+              className="filter"
               type="text"
               data-testid="name-filter"
-              onInput={ this.filterCards }
+              onInput={this.filterCards}
             />
-            <select onInput={ this.filterCard } data-testid="rare-filter">
+            <select
+              className="filter"
+              onInput={this.filterCard}
+              data-testid="rare-filter"
+
+            >
               <option value="all">todas</option>
               <option value="normal">normal</option>
               <option value="raro">raro</option>
               <option value="muito raro">muito raro</option>
             </select>
+            <label htmlFor="trunfoFileter">
+              Super Trunfo
+              <input
+                type="checkbox"
+                id="trunfoFilter"
+                data-testid="trunfo-filter"
+                onInput={this.filterTrunfo}
+              />
+            </label>
+
           </form>
         </div>
         <section id="deck">

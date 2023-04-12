@@ -11,7 +11,7 @@ const teste = () => {
     cardRare: 'muito raro',
     cardVisible: true,
     cardImage: `image_${1}`,
-    cardTrunfo: false,
+    cardTrunfo: true,
 
   }];
   const raridade = ['normal', 'raro'];

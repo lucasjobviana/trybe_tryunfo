@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Form extends Component {
-  constructor(props) {
-    super(props);
-    console.log(null);
-  }
-
   render() {
     const {
       cardName,
@@ -68,7 +63,7 @@ class Form extends Component {
     });
 */
 
-    console.log(hasTrunfo);
+    // console.log(hasTrunfo);
 
     return (
       <form>
