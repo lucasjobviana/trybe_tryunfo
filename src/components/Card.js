@@ -26,32 +26,39 @@ class Card extends Component {
     //   ? { display: 'none' } : { display: 'flex' };
     //   id={ `${cardName}-id` }
     return (
-      <div className={ view }>
-        Nome:
-        <p data-testid="name-card">
-          {cardName}
-        </p>
-        <img src={ cardImage } alt={ cardName } data-testid="image-card" />
-        Descrição:
-        <p data-testid="description-card">
+      <div className={view}>
+        <label>Nome:
+          <span>{cardName}</span>
+        </label>
+
+        <img src={cardImage} alt={cardName} data-testid="image-card" />
+
+
+        <label>Descrição:
+          <span>{cardDescription}</span>
           {cardDescription}
-        </p>
-        Ataque:
-        <p data-testid="attr1-card">
-          {cardAttr1}
-        </p>
-        Defesa:
-        <p data-testid="attr2-card">
-          {cardAttr2}
-        </p>
-        Magia:
-        <p data-testid="attr3-card">
-          {cardAttr3}
-        </p>
-        Raridade:
-        <p data-testid="rare-card">
-          {cardRare}
-        </p>
+        </label>
+
+        <label>Combo:
+          <span>{cardAttr1}</span>
+        </label>
+
+        <label>Golpe:
+          <span>{cardAttr2}</span>
+        </label>
+
+        <label>Especial:
+          <span>{cardAttr3}</span>
+        </label>
+
+        <label>Especial:
+          <span>{cardAttr3}</span>
+        </label>
+
+        <label>Tipo:
+          <span>{cardRare}</span>
+        </label>
+
         {tElement}
 
       </div>

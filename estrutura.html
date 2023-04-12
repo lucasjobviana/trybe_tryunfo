@@ -1,0 +1,155 @@
+<div>
+    <h1>Tryunfo</h1>
+    <form>
+        <h1>Olá, mundo!</h1><label for="ipt-name">Nome:<input type="text" name="cardName" data-testid="name-input"
+                id="ipt-name" value=""></label><label for="ipt-descrition">Descrição:<input type="text"
+                name="cardDescription" data-testid="description-input" id="ipt-descrition" value=""></label><label
+            for="ipt-atk">Força de Ataque:<input min="0" max="90" type="number" name="cardAttr1"
+                data-testid="attr1-input" id="ipt-atk" value=""></label><label for="ipt-dfs">Força de Defesa:<input
+                min="0" max="90" name="cardAttr2" type="number" data-testid="attr2-input" id="ipt-dfs"
+                value=""></label><label for="ipt-vlc">Velocidade:<input min="0" max="90" type="number" name="cardAttr3"
+                data-testid="attr3-input" id="ipt-vlc" value=""></label><label for="ipt-src-img">Imagem:<input
+                name="cardImage" type="text" data-testid="image-input" id="ipt-src-img" value=""></label><label
+            for="slc-tipo">Tipo:<select data-testid="rare-input" name="cardRare" id="slc-tipo">
+                <option value="Normal Figther">Normal Fighter</option>
+                <option value="Supernatural Figther">Supernatural Fighter</option>
+                <option value="Divine">Divine</option>
+            </select></label><label for="ipt-trunfo">Super Trunfo<input name="cardTrunfo" data-testid="trunfo-input"
+                type="checkbox" id="ipt-trunfo"></label><button data-testid="save-button" disabled="">Salvar</button>
+    </form>
+    <div class="card view"><label>Nome:<span></span></label><img src="" alt=""
+            data-testid="image-card"><label>Descrição:<span></span></label><label>Combo:<span></span></label><label>Golpe:<span></span></label><label>Especial:<span></span></label><label>Especial:<span></span></label><label>Tipo:<span>Normal
+                Figther</span></label></div>
+    <div id="filters">
+        <form action=""><input id="filterName" class="filter" type="text" data-testid="name-filter"><select
+                class="filter" data-testid="rare-filter">
+                <option value="all">todas</option>
+                <option value="normal">normal</option>
+                <option value="raro">raro</option>
+                <option value="muito raro">muito raro</option>
+            </select><label for="trunfoFileter">Super Trunfo<input type="checkbox" id="trunfoFilter"
+                    data-testid="trunfo-filter"></label></form>
+    </div>
+    <section id="deck">
+        <div>
+            <div class="card"><label>Nome:<span>Iori Yagami</span></label><img
+                    src="ahttps://64.media.tumblr.com/38999d2e080dbfbac6b294ecaf689b4a/tumblr_ndazwe1PL21rajrz6o8_400.gif"
+                    alt="Iori Yagami" data-testid="image-card"><label>Descrição:<span>Iori Yagami é um lutador com
+                        personalidade arrogante e agressiva,que possui habilidades de fogo e busca vingançapela morte de
+                        seus ancestrais.</span>Iori Yagami é um lutador com personalidade arrogante e agressiva,que
+                    possui habilidades de fogo e busca vingançapela morte de seus
+                    ancestrais.</label><label>Combo:<span>34</span></label><label>Golpe:<span>45</span></label><label>Especial:<span>26</span></label><label>Especial:<span>26</span></label><label>Tipo:<span>Supernatural
+                        Figther</span></label></div><button id="0" data-testid="delete-button">Excluir</button>
+        </div>
+        <div>
+            <div class="card"><label>Nome:<span>Kyo Kusanagi</span></label><img src="kyo.png" alt="Kyo Kusanagi"
+                    data-testid="image-card"><label>Descrição:<span>Kyo Kusanagi é o líder do clã Kusanagi, especialista
+                        em artes marciais e dotado de habilidades de fogo.</span>Kyo Kusanagi é o líder do clã Kusanagi,
+                    especialista em artes marciais e dotado de habilidades de
+                    fogo.</label><label>Combo:<span>31</span></label><label>Golpe:<span>35</span></label><label>Especial:<span>41</span></label><label>Especial:<span>41</span></label><label>Tipo:<span>Supernatural
+                        Figther</span></label></div><button id="1" data-testid="delete-button">Excluir</button>
+        </div>
+        <div>
+            <div class="card"><label>Nome:<span>Leona Heidern</span></label><img src="kyo.png" alt="Leona Heidern"
+                    data-testid="image-card"><label>Descrição:<span>Leona é uma soldado da Ikari Warriors, com
+                        habilidades em artes marciais e um alter ego controlado por Orochi.</span>Leona é uma soldado da
+                    Ikari Warriors, com habilidades em artes marciais e um alter ego controlado por
+                    Orochi.</label><label>Combo:<span>31</span></label><label>Golpe:<span>35</span></label><label>Especial:<span>41</span></label><label>Especial:<span>41</span></label><label>Tipo:<span>Supernatural
+                        Figther</span></label></div><button id="2" data-testid="delete-button">Excluir</button>
+        </div>
+        <div>
+            <div class="card"><label>Nome:<span>Shizuru Kagura </span></label><img src="kyo.png" alt="Shizuru Kagura "
+                    data-testid="image-card"><label>Descrição:<span>Shizuru Kagura é uma lutadora elegante e poderosa
+                        que controla o vento para derrotar seus oponentes. Ela como membro do clã Yata tem o dever
+                        impedir o retorno de Orochi.</span>Shizuru Kagura é uma lutadora elegante e poderosa que
+                    controla o vento para derrotar seus oponentes. Ela como membro do clã Yata tem o dever impedir o
+                    retorno de
+                    Orochi.</label><label>Combo:<span>31</span></label><label>Golpe:<span>35</span></label><label>Especial:<span>41</span></label><label>Especial:<span>41</span></label><label>Tipo:<span>Supernatural
+                        Figther</span></label></div><button id="3" data-testid="delete-button">Excluir</button>
+        </div>
+        <div>
+            <div class="card"><label>Nome:<span>Chris</span></label><img src="kyo.png" alt="Chris"
+                    data-testid="image-card"><label>Descrição:<span>Chris, vocalista da banda C.Y.S, é um lutador
+                        carismático e habilidoso que usa poderes psíquicos em seus ataques. e dotado de habilidades de
+                        fogo.</span>Chris, vocalista da banda C.Y.S, é um lutador carismático e habilidoso que usa
+                    poderes psíquicos em seus ataques. e dotado de habilidades de
+                    fogo.</label><label>Combo:<span>31</span></label><label>Golpe:<span>35</span></label><label>Especial:<span>41</span></label><label>Especial:<span>41</span></label><label>Tipo:<span>Supernatural
+                        Figther</span></label></div><button id="4" data-testid="delete-button">Excluir</button>
+        </div>
+        <div>
+            <div class="card"><label>Nome:<span>Terry Bogard</span></label><img src="kyo.png" alt="Terry Bogard"
+                    data-testid="image-card"><label>Descrição:<span>Terry Bogard é um lutador carismático e corajoso,
+                        conhecido por seus punhos poderosos e por sua busca por justiça. </span>Terry Bogard é um
+                    lutador carismático e corajoso, conhecido por seus punhos poderosos e por sua busca por justiça.
+                </label><label>Combo:<span>31</span></label><label>Golpe:<span>35</span></label><label>Especial:<span>41</span></label><label>Especial:<span>41</span></label><label>Tipo:<span>Normal
+                        Figther</span></label></div><button id="5" data-testid="delete-button">Excluir</button>
+        </div>
+        <div>
+            <div class="card"><label>Nome:<span>Ralph Jones</span></label><img src="kyo.png" alt="Ralph Jones"
+                    data-testid="image-card"><label>Descrição:<span>Ralf é um ex-militar com habilidades em artes
+                        marciais. Junto com Clark, ele participa do torneio de KOF em busca de vingança contra seu
+                        ex-comandante.</span>Ralf é um ex-militar com habilidades em artes marciais. Junto com Clark,
+                    ele participa do torneio de KOF em busca de vingança contra seu
+                    ex-comandante.</label><label>Combo:<span>31</span></label><label>Golpe:<span>35</span></label><label>Especial:<span>41</span></label><label>Especial:<span>41</span></label><label>Tipo:<span>Normal
+                        Figther</span></label></div><button id="6" data-testid="delete-button">Excluir</button>
+        </div>
+        <div>
+            <div class="card"><label>Nome:<span>Blue Mary</span></label><img src="kyo.png" alt="Blue Mary"
+                    data-testid="image-card"><label>Descrição:<span>Blue Mary é uma agente secreta habilidosa em artes
+                        marciais, conhecida por seu estilo de luta único que incorpora técnicas de wrestling.</span>Blue
+                    Mary é uma agente secreta habilidosa em artes marciais, conhecida por seu estilo de luta único que
+                    incorpora técnicas de
+                    wrestling.</label><label>Combo:<span>31</span></label><label>Golpe:<span>35</span></label><label>Especial:<span>41</span></label><label>Especial:<span>41</span></label><label>Tipo:<span>Normal
+                        Figther</span></label></div><button id="7" data-testid="delete-button">Excluir</button>
+        </div>
+        <div>
+            <div class="card"><label>Nome:<span>Billy Kane</span></label><img src="kyo.png" alt="Billy Kane"
+                    data-testid="image-card"><label>Descrição:<span>Billy Kane é um lutador de artes marciais com
+                        habilidades em artes com bastões e chutes, além de ser o guarda-costas pessoal de Geese
+                        Howard.</span>Billy Kane é um lutador de artes marciais com habilidades em artes com bastões e
+                    chutes, além de ser o guarda-costas pessoal de Geese
+                    Howard.</label><label>Combo:<span>31</span></label><label>Golpe:<span>35</span></label><label>Especial:<span>41</span></label><label>Especial:<span>41</span></label><label>Tipo:<span>Normal
+                        Figther</span></label></div><button id="8" data-testid="delete-button">Excluir</button>
+        </div>
+        <div>
+            <div class="card"><label>Nome:<span>Ryu Sakazaki </span></label><img src="kyo.png" alt="Ryu Sakazaki "
+                    data-testid="image-card"><label>Descrição:<span>Ryu é um artista marcial habilidoso que luta com um
+                        estilo de karatê e é o herdeiro da arte marcial Sakazaki.</span>Ryu é um artista marcial
+                    habilidoso que luta com um estilo de karatê e é o herdeiro da arte marcial
+                    Sakazaki.</label><label>Combo:<span>31</span></label><label>Golpe:<span>35</span></label><label>Especial:<span>41</span></label><label>Especial:<span>41</span></label><label>Tipo:<span>Normal
+                        Figther</span></label></div><button id="9" data-testid="delete-button">Excluir</button>
+        </div>
+        <div>
+            <div class="card"><label>Nome:<span>Ryuji Yamazaki</span></label><img src="kyo.png" alt="Ryuji Yamazaki"
+                    data-testid="image-card"><label>Descrição:<span>Yamazaki é um lutador durão e sem escrúpulos que usa
+                        táticas sujas para vencer suas lutas. Ele é conhecido por sua personalidade sádica e por usar
+                        uma faca em combate.</span>Yamazaki é um lutador durão e sem escrúpulos que usa táticas sujas
+                    para vencer suas lutas. Ele é conhecido por sua personalidade sádica e por usar uma faca em
+                    combate.</label><label>Combo:<span>31</span></label><label>Golpe:<span>35</span></label><label>Especial:<span>41</span></label><label>Especial:<span>41</span></label><label>Tipo:<span>Normal
+                        Figther</span></label></div><button id="10" data-testid="delete-button">Excluir</button>
+        </div>
+        <div>
+            <div class="card"><label>Nome:<span>Rugal Bernstein</span></label><img src="kyo.png" alt="Rugal Bernstein"
+                    data-testid="image-card"><label>Descrição:<span>Rugal Bernstein é um vilão egocêntrico e impiedoso,
+                        que busca poder e dominação a qualquer custo. </span>Rugal Bernstein é um vilão egocêntrico e
+                    impiedoso, que busca poder e dominação a qualquer custo.
+                </label><label>Combo:<span>39</span></label><label>Golpe:<span>33</span></label><label>Especial:<span>41</span></label><label>Especial:<span>41</span></label><label>Tipo:<span>Supernatural
+                        Figther</span></label></div><button id="11" data-testid="delete-button">Excluir</button>
+        </div>
+        <div>
+            <div class="card"><label>Nome:<span>Oroshi</span></label><img src="kyo.png" alt="Oroshi"
+                    data-testid="image-card"><label>Descrição:<span>Orochi é uma divindade malévola com poderes
+                        sobrenaturais.</span>Orochi é uma divindade malévola com poderes
+                    sobrenaturais.</label><label>Combo:<span>31</span></label><label>Golpe:<span>35</span></label><label>Especial:<span>41</span></label><label>Especial:<span>41</span></label><label>Tipo:<span>Divine</span></label>
+            </div><button id="12" data-testid="delete-button">Excluir</button>
+        </div>
+        <div>
+            <div class="card"><label>Nome:<span>Shingo Yabuki</span></label><img src="kyo.png" alt="Shingo Yabuki"
+                    data-testid="image-card"><label>Descrição:<span>Shingo Yabuki é um estudante do ensino médio japonês
+                        e é um fã / aluno do lutador de Kyo Kusanagi. </span>Shingo Yabuki é um estudante do ensino
+                    médio japonês e é um fã / aluno do lutador de Kyo Kusanagi.
+                </label><label>Combo:<span>31</span></label><label>Golpe:<span>35</span></label><label>Especial:<span>41</span></label><label>Especial:<span>41</span></label><label>Tipo:<span>Supernatural
+                        Figther</span></label></div><button id="13" data-testid="delete-button">Excluir</button>
+        </div>
+    </section>
+</div>

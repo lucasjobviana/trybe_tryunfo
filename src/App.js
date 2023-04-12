@@ -2,19 +2,19 @@ import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
 import Filter from './components/Filter';
-// import teste from './teste';
+import teste from './teste';
 
 class App extends React.Component {
   constructor() {
     super();
-    const deckPre = [];// teste();
+    const deckPre = teste();
     this.state = {
       cardName: '',
       cardDescription: '',
       cardAttr1: '',
       cardAttr2: '',
       cardAttr3: '',
-      cardRare: 'normal',
+      cardRare: 'Normal Figther',
       cardImage: '',
       isSaveButtonDisabled: true,
       hasTrunfo: false,
@@ -74,7 +74,7 @@ class App extends React.Component {
       cardName: '',
       cardDescription: '',
       cardImage: '',
-      cardRare: 'normal',
+      cardRare: 'Normal Figther',
       cardTrunfo: false,
       cardAttr1: '0',
       cardAttr2: '0',
@@ -182,25 +182,25 @@ class App extends React.Component {
     } = this.state;
 
     const cards = deckVisible.map((card, ord) => (
-      <div key={ ord + ord }>
+      <div key={ord + ord}>
         <Card
-          key={ card.cardName + ord }
-          cardName={ card.cardName }
-          cardDescription={ card.cardDescription }
-          cardAttr1={ card.cardAttr1 }
-          cardAttr2={ card.cardAttr2 }
-          cardAttr3={ card.cardAttr3 }
-          cardImage={ card.cardImage }
-          cardRare={ card.cardRare }
-          cardTrunfo={ card.cardTrunfo }
-          cardVisible={ card.cardVisible }
-          isView={ false }
+          key={card.cardName + ord}
+          cardName={card.cardName}
+          cardDescription={card.cardDescription}
+          cardAttr1={card.cardAttr1}
+          cardAttr2={card.cardAttr2}
+          cardAttr3={card.cardAttr3}
+          cardImage={card.cardImage}
+          cardRare={card.cardRare}
+          cardTrunfo={card.cardTrunfo}
+          cardVisible={card.cardVisible}
+          isView={false}
         />
         <button
-          key={ `del${ord}${card.cardName}` }
-          id={ ord }
+          key={`del${ord}${card.cardName}`}
+          id={ord}
           data-testid="delete-button"
-          onClick={ this.deleteCard }
+          onClick={this.deleteCard}
         >
           Excluir
         </button>
@@ -214,32 +214,32 @@ class App extends React.Component {
       <div>
         <h1>Tryunfo</h1>
         <Form
-          onSaveButtonClick={ this.onSaveButtonClick }
-          salvar={ this.salvar }
-          onInputChange={ this.handleChanges }
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardRare={ cardRare }
-          cardTrunfo={ cardTrunfo }
-          hasTrunfo={ hasTrunfo }
-          isSaveButtonDisabled={ isSaveButtonDisabled }
+          onSaveButtonClick={this.onSaveButtonClick}
+          salvar={this.salvar}
+          onInputChange={this.handleChanges}
+          cardName={cardName}
+          cardDescription={cardDescription}
+          cardAttr1={cardAttr1}
+          cardAttr2={cardAttr2}
+          cardAttr3={cardAttr3}
+          cardImage={cardImage}
+          cardRare={cardRare}
+          cardTrunfo={cardTrunfo}
+          hasTrunfo={hasTrunfo}
+          isSaveButtonDisabled={isSaveButtonDisabled}
         />
         <Card
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardRare={ cardRare }
-          cardTrunfo={ cardTrunfo }
-          isView={ verdade }
+          cardName={cardName}
+          cardDescription={cardDescription}
+          cardAttr1={cardAttr1}
+          cardAttr2={cardAttr2}
+          cardAttr3={cardAttr3}
+          cardImage={cardImage}
+          cardRare={cardRare}
+          cardTrunfo={cardTrunfo}
+          isView={verdade}
         />
-        <Filter filterCards={ this.filterCards } />
+        <Filter filterCards={this.filterCards} />
         <section id="deck">
           {cards}
         </section>

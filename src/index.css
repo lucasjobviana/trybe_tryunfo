@@ -21,14 +21,23 @@ code {
 .card {
   margin: 1px;
   border: 1px solid black;
-  width: 30dvh;
+  width: 50dvh;
+  height: 80dvh;
+  position: relative;
+}
+
+.card img {
+  position: absolute;
+  width: 100%;
+  z-index: -2;
+  background-color: black;
+
 }
 
 .view {
-  /* position: absolute; */
+  position: absolute;
   border: 3px solid blue;
-  /* right: 5px; */
-  /* z-index: 4; */
+  right: 5px;
 }
 
 form {
